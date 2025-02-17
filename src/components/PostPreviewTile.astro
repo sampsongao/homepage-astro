@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import AspectRatioSizedBox from "./AspectRatioSizedBox.astro";
+
+const { title, description, previewImageUrl } = Astro.props;
+---
+
+<div class="bg-white dark:bg-zinc-900 shadow-lg">
+  <AspectRatioSizedBox
+    height="auto"
+    width="100%"
+    heightRatio={3}
+    widthRatio={2}
+  >
+    <div class="w-full h-full flex content-center overflow-hidden">
+      <Image
+        class="object-cover"
+        src={previewImageUrl}
+        alt="blog_preview"
+        width={1000}
+        height={1000}
+      />
+    </div>
+  </AspectRatioSizedBox>
+
+  <div class="p-4 space-y-2">
+    <h3 class="text-l font-bold text-gray-700 dark:text-gray-300">
+      {title}
+    </h3>
+
+    <div
+      class=`h-[160px] overflow-hidden relative
+        before:absolute before:bottom-0 before:left-0 before:right-0 before:h-8 before:bg-gradient-to-t before:from-white dark:before:from-zinc-900 before:to-transparent before:pointer-events-none
+      `
+    >
+      <p class="text-sm text-gray-700 dark:text-gray-300">{description}</p>
+    </div>
+  </div>
+</div>
