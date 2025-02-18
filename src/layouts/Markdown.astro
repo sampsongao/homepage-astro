@@ -1,0 +1,23 @@
+---
+import Footer from "../components/Footer.astro";
+import NavBar from "../components/NavBar";
+import SiteMap from "../components/SiteMap.astro";
+import Layout from "./Layout.astro";
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <NavBar client:load />
+
+  <div class="container py-16">
+    <div class="prose prose-zinc dark:prose-invert">
+      <slot />
+    </div>
+  </div>
+
+  <SiteMap />
+
+  <Footer>
+    © {new Date().getFullYear()} Sampson Gao. All rights reserved.
+  </Footer>
+</Layout>

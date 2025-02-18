@@ -13,7 +13,7 @@ import project4JPG from "../assets/project4.jpg";
 import SiteMap from "../components/SiteMap.astro";
 ---
 
-<Layout>
+<Layout title="Sampson's Home Page">
   <div
     class="h-[100vh]"
     style={{
@@ -44,7 +44,7 @@ import SiteMap from "../components/SiteMap.astro";
     <section
       class="absolute top-0 bottom-0 left-0 right-0 h-[100vh] min-h-[600px]"
     >
-      <NavBar client:visible />
+      <NavBar client:load />
 
       <div class="h-full w-screen">
         <div class="h-full">
