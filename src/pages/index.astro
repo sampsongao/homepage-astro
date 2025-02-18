@@ -6,6 +6,7 @@ import PostPreviewTile from "../components/PostPreviewTile.astro";
 import SectionHeader from "../components/SectionHeader";
 import StylishButton, { ButtonType } from "../components/StylishButton";
 import NavBar from "../components/NavBar";
+import heroBgImg from "../assets/hero-background.jpeg";
 import project1JPG from "../assets/project1.jpg";
 import project2JPG from "../assets/project2.jpg";
 import project3JPG from "../assets/project3.jpg";
@@ -32,12 +33,19 @@ import SiteMap from "../components/SiteMap.astro";
       }}
     >
       <div
-        class=`absolute top-0 bottom-0 left-0 right-0 bg-[url('/hero-background.jpeg')] bg-center bg-cover opacity-30`
+        class=`absolute top-0 bottom-0 left-0 right-0 opacity-30`
         style={{
           WebkitTransform: "translateZ(-400px) scale(2)",
           transform: "translateZ(-400px) scale(2)",
         }}
       >
+        <Image
+          class="w-full h-full object-cover"
+          src={heroBgImg}
+          alt="hero-bg-img"
+          width={4000}
+          height={4000}
+        />
       </div>
     </section>
 
