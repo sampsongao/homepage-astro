@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import HexagonTile from "../components/HexagonTile.astro";
+import HexagonTilesGroup from "../components/HexagonTilesGroup.astro";
+import "../styles/global.css";
+import heroBgImg from "../assets/hero-background.jpeg";
+import project1JPG from "../assets/project1.jpg";
+import project2JPG from "../assets/project2.jpg";
+import project3JPG from "../assets/project3.jpg";
+import project4JPG from "../assets/project4.jpg";
+---
+
+<div class="h-[100vh] w-[100vw]">
+    <div class="h-[800px] w-[1000px]" style={{
+        transform: "perspective(1000px) rotateX(30deg) rotateZ(14deg)",
+    }}>
+        <HexagonTilesGroup>
+            <HexagonTile x={0} y={0} s={0.88} a="200px">
+                <div class="h-full w-full">
+                    <Image class="h-[100%] w-[100%] object-cover" src={heroBgImg} width={1000} height={1000} alt="image" />
+                </div>
+            </HexagonTile>
+
+            <HexagonTile x={1} y={0} s={0.88} a="200px">
+                <div class="h-full w-full">
+                    <Image class="h-[100%] w-[100%] object-cover" src={project1JPG} width={1000} height={1000} alt="image" />
+                </div>
+            </HexagonTile>
+
+            <HexagonTile x={0.5} y={1} s={0.88} a="200px">
+                <div class="h-full w-full">
+                    <Image class="h-[100%] w-[100%] object-cover" src={project2JPG} width={1000} height={1000} alt="image" />
+                </div>
+            </HexagonTile>
+
+            <HexagonTile x={1.5} y={1} s={0.88} a="200px">
+                <div class="h-full w-full">
+                    <Image class="h-[100%] w-[100%] object-cover" src={project3JPG} width={1000} height={1000} alt="image" />
+                </div>
+            </HexagonTile>
+
+            <HexagonTile x={2} y={2} s={0.88} a="200px">
+                <div class="h-full w-full">
+                    <Image class="h-[100%] w-[100%] object-cover" src={project2JPG} width={1000} height={1000} alt="image" />
+                </div>
+            </HexagonTile>
+
+            <HexagonTile x={2.5} y={1} s={0.88} a="200px">
+                <div class="h-full w-full">
+                    <Image class="h-[100%] w-[100%] object-cover" src={project4JPG} width={1000} height={1000} alt="image" />
+                </div>
+            </HexagonTile>
+        </HexagonTilesGroup>
+    </div>
+</div>
