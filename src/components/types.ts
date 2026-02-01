@@ -1,6 +1,5 @@
 
 export interface ExperienceItem {
-  id: string;
   role: string;
   company: string;
   period: string;
@@ -9,7 +8,6 @@ export interface ExperienceItem {
 }
 
 export interface ProjectItem {
-  id: string;
   title: string;
   description: string;
   image: string;
@@ -23,7 +21,6 @@ export interface StatItem {
 }
 
 export interface BlogPost {
-  id: string;
   title: string;
   excerpt: string;
   date: string;

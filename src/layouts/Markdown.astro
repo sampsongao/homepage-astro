@@ -1,13 +1,16 @@
 ---
 import Footer from "../components/Footer.astro";
-import NavBar from "../components/NavBar";
-import SiteMap from "../components/SiteMap.astro";
+import Header from "../components/Header.astro";
 import Layout from "./Layout.astro";
+
 const { title } = Astro.props;
+const pathname = Astro.url.pathname;
+const origin = Astro.url.origin;
+const searchParams = Astro.url.searchParams;
 ---
 
 <Layout title={title}>
-  <NavBar client:load />
+  <Header pathname={pathname} />
 
   <div class="container py-16">
     <div class="prose prose-zinc dark:prose-invert">
@@ -15,9 +18,5 @@ const { title } = Astro.props;
     </div>
   </div>
 
-  <SiteMap />
-
-  <Footer>
-    © {new Date().getFullYear()} Sampson Gao. All rights reserved.
-  </Footer>
+  <Footer />
 </Layout>
