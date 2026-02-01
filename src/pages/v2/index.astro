@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/v2/Layout.astro";
+import Header from "../../components/v2/Header";
+import Hero from "../../components/v2/Hero.astro";
+import Experience from "../../components/v2/Experience";
+import Projects from "../../components/v2/Projects";
+import Footer from "../../components/v2/Footer.astro";
+
+const pathname = Astro.url.pathname;
+const origin = Astro.url.origin;
+const searchParams = Astro.url.searchParams;
+---
+
+<Layout title="Sampson's Home Page V2">
+  <Header pathname={pathname} />
+  <Hero />
+  <Experience />
+  <Projects />
+  <Footer />
+</Layout>
