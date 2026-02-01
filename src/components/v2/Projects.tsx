@@ -1,6 +1,15 @@
-
 import React from 'react';
-import { PROJECTS } from './constants';
+import { ProjectItem } from './types';
+
+export const PROJECTS: ProjectItem[] = [
+  {
+    id: '1',
+    title: 'Particles Portrait',
+    description: 'Portrait display with particle interactive animation.',
+    image: '/portrait-particles.svg',
+    tags: ['AWS ECS', 'gRPC', 'AWS DynamoDB'],
+  }
+];
 
 const Projects: React.FC = () => {
   return (
@@ -14,14 +23,14 @@ const Projects: React.FC = () => {
           {PROJECTS.map((project) => (
             <div key={project.id} className="group bg-zinc-900/30 border border-white/5 overflow-hidden hover:border-[#d4af37]/30 transition-all duration-500">
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
               </div>
-              
+
               <div className="p-8 space-y-4">
                 <div className="flex justify-between items-start">
                   <h3 className="text-xl font-bold text-white group-hover:text-[#d4af37] transition-colors">

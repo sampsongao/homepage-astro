@@ -1,0 +1,668 @@
+
+
+<style>
+    #portrait-svg circle {
+        transition: transform 180ms ease-out;
+        will-change: transform;
+    }
+</style>
+
+<script>
+  const svg = document.getElementById("portrait-svg");
+
+  const circles = svg?.querySelectorAll("circle");
+
+  const influenceRadius = 80;
+  const maxOffset = 10;
+
+  function onMouseMove(e: any) {
+    if (!svg) return;
+
+    const rect = svg.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+
+    circles?.forEach((c: any) => {
+      const x = parseFloat(c.dataset.x);
+      const y = parseFloat(c.dataset.y);
+
+      const dx = x - mx;
+      const dy = y - my;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      let tx =0;
+      let ty = 0;
+      if (dist < influenceRadius) {
+        const force = (1 - dist / influenceRadius);
+        tx = dx / dist * force * maxOffset;
+        ty = dy / dist * force * maxOffset;
+      }
+
+      c.setAttribute("cx", x + tx);
+      c.setAttribute("cy", y + ty);
+    });
+  }
+
+  function reset() {
+    circles?.forEach((c: any) => {
+      const x = parseFloat(c.dataset.x);
+      const y = parseFloat(c.dataset.y);
+      c.setAttribute("cx", x);
+      c.setAttribute("cy", y);
+    });
+  }
+
+  svg?.addEventListener("mousemove", onMouseMove);
+  svg?.addEventListener("mouseleave", reset);
+</script>
+
+<div>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="400"
+        height="400"
+        viewBox="0 0 400 400"
+        id="portrait-svg"
+    >
+<circle cx="139.82" cy="316.50" data-x="139.82" data-y="316.50" r="0.9143406382160706" fill="#fff" />
+    <circle cx="197.89" cy="257.87" data-x="197.89" data-y="257.87" r="0.9314048442906573" fill="#fff" />
+    <circle cx="206.22" cy="287.56" data-x="206.22" data-y="287.56" r="0.6535563244905807" fill="#fff" />
+    <circle cx="216.66" cy="163.81" data-x="216.66" data-y="163.81" r="0.8246658977316417" fill="#fff" />
+    <circle cx="168.42" cy="149.49" data-x="168.42" data-y="149.49" r="0.7938100730488273" fill="#fff" />
+    <circle cx="153.79" cy="241.98" data-x="153.79" data-y="241.98" r="0.9143406382160706" fill="#fff" />
+    <circle cx="210.58" cy="385.93" data-x="210.58" data-y="385.93" r="0.9314048442906573" fill="#fff" />
+    <circle cx="238.10" cy="335.36" data-x="238.10" data-y="335.36" r="0.8404444444444445" fill="#fff" />
+    <circle cx="124.73" cy="254.45" data-x="124.73" data-y="254.45" r="0.7207612456747405" fill="#fff" />
+    <circle cx="296.62" cy="125.55" data-x="296.62" data-y="125.55" r="0.33182006920415225" fill="#fff" />
+    <circle cx="197.52" cy="361.11" data-x="197.52" data-y="361.11" r="1.0202322183775472" fill="#fff" />
+    <circle cx="159.37" cy="104.81" data-x="159.37" data-y="104.81" r="0.6283106497500961" fill="#fff" />
+    <circle cx="190.99" cy="389.15" data-x="190.99" data-y="389.15" r="0.8325259515570935" fill="#fff" />
+    <circle cx="144.48" cy="290.38" data-x="144.48" data-y="290.38" r="0.5692871972318339" fill="#fff" />
+    <circle cx="255.07" cy="212.20" data-x="255.07" data-y="212.20" r="0.8727028066128415" fill="#fff" />
+    <circle cx="206.46" cy="399.29" data-x="206.46" data-y="399.29" r="0.46877201076509034" fill="#fff" />
+    <circle cx="252.55" cy="304.94" data-x="252.55" data-y="304.94" r="0.6797370242214533" fill="#fff" />
+    <circle cx="194.31" cy="284.41" data-x="194.31" data-y="284.41" r="0.756555171088043" fill="#fff" />
+    <circle cx="238.17" cy="143.28" data-x="238.17" data-y="143.28" r="0.8168642829680894" fill="#fff" />
+    <circle cx="155.46" cy="164.07" data-x="155.46" data-y="164.07" r="0.9574394463667821" fill="#fff" />
+    <circle cx="266.50" cy="96.07" data-x="266.50" data-y="96.07" r="0.5637062668204537" fill="#fff" />
+    <circle cx="199.18" cy="81.46" data-x="199.18" data-y="81.46" r="0.8168642829680894" fill="#fff" />
+    <circle cx="183.03" cy="280.64" data-x="183.03" data-y="280.64" r="0.9314048442906573" fill="#fff" />
+    <circle cx="286.18" cy="61.57" data-x="286.18" data-y="61.57" r="0.34000153787005" fill="#fff" />
+    <circle cx="122.45" cy="346.12" data-x="122.45" data-y="346.12" r="0.6471572472126106" fill="#fff" />
+    <circle cx="195.71" cy="221.29" data-x="195.71" data-y="221.29" r="0.9228435217224145" fill="#fff" />
+    <circle cx="151.26" cy="377.52" data-x="151.26" data-y="377.52" r="0.9487028066128413" fill="#fff" />
+    <circle cx="248.38" cy="255.78" data-x="248.38" data-y="255.78" r="0.7938100730488273" fill="#fff" />
+    <circle cx="131.60" cy="263.42" data-x="131.60" data-y="263.42" r="0.7207612456747405" fill="#fff" />
+    <circle cx="91.79" cy="369.67" data-x="91.79" data-y="369.67" r="0.35402691272587467" fill="#fff" />
+    <circle cx="173.03" cy="381.90" data-x="173.03" data-y="381.90" r="1.1846505190311418" fill="#fff" />
+    <circle cx="163.90" cy="79.02" data-x="163.90" data-y="79.02" r="0.34219300269127256" fill="#fff" />
+    <circle cx="316.62" cy="104.29" data-x="316.62" data-y="104.29" r="1.04801999231065" fill="#fff" />
+    <circle cx="177.30" cy="334.92" data-x="177.30" data-y="334.92" r="0.8809134948096886" fill="#fff" />
+    <circle cx="285.68" cy="363.76" data-x="285.68" data-y="363.76" r="0.3467512495194156" fill="#fff" />
+    <circle cx="164.90" cy="48.18" data-x="164.90" data-y="48.18" r="0.3154571318723568" fill="#fff" />
+    <circle cx="150.27" cy="183.71" data-x="150.27" data-y="183.71" r="1.1544083044982698" fill="#fff" />
+    <circle cx="313.71" cy="128.22" data-x="313.71" data-y="128.22" r="1.9830449826989622" fill="#fff" />
+    <circle cx="228.23" cy="106.13" data-x="228.23" data-y="106.13" r="0.8014363706266818" fill="#fff" />
+    <circle cx="172.12" cy="104.85" data-x="172.12" data-y="104.85" r="0.5863806228373702" fill="#fff" />
+    <circle cx="216.61" cy="378.24" data-x="216.61" data-y="378.24" r="1.0294363706266823" fill="#fff" />
+    <circle cx="242.58" cy="91.96" data-x="242.58" data-y="91.96" r="0.6864282968089197" fill="#fff" />
+    <circle cx="282.54" cy="326.62" data-x="282.54" data-y="326.62" r="1.4804982698961937" fill="#fff" />
+    <circle cx="188.63" cy="305.11" data-x="188.63" data-y="305.11" r="0.8325259515570935" fill="#fff" />
+    <circle cx="231.75" cy="288.26" data-x="231.75" data-y="288.26" r="0.5473141099577086" fill="#fff" />
+    <circle cx="187.19" cy="246.68" data-x="187.19" data-y="246.68" r="0.9662345251826221" fill="#fff" />
+    <circle cx="239.33" cy="365.11" data-x="239.33" data-y="365.11" r="0.8484213763936947" fill="#fff" />
+    <circle cx="186.34" cy="330.41" data-x="186.34" data-y="330.41" r="0.8404444444444445" fill="#fff" />
+    <circle cx="292.17" cy="205.66" data-x="292.17" data-y="205.66" r="0.9143406382160706" fill="#fff" />
+    <circle cx="191.68" cy="275.31" data-x="191.68" data-y="275.31" r="1.0202322183775472" fill="#fff" />
+    <circle cx="277.97" cy="88.82" data-x="277.97" data-y="88.82" r="0.34444290657439447" fill="#fff" />
+    <circle cx="140.05" cy="269.57" data-x="140.05" data-y="269.57" r="0.7349034986543638" fill="#fff" />
+    <circle cx="284.38" cy="211.13" data-x="284.38" data-y="211.13" r="0.9487028066128413" fill="#fff" />
+    <circle cx="210.91" cy="7.95" data-x="210.91" data-y="7.95" r="0.41968319876970395" fill="#fff" />
+    <circle cx="226.76" cy="278.31" data-x="226.76" data-y="278.31" r="0.5863806228373702" fill="#fff" />
+    <circle cx="190.24" cy="380.90" data-x="190.24" data-y="380.90" r="1.1544083044982698" fill="#fff" />
+    <circle cx="163.11" cy="305.13" data-x="163.11" data-y="305.13" r="0.8246658977316417" fill="#fff" />
+    <circle cx="234.46" cy="298.09" data-x="234.46" data-y="298.09" r="0.6283106497500961" fill="#fff" />
+    <circle cx="146.76" cy="84.84" data-x="146.76" data-y="84.84" r="0.3618285274894271" fill="#fff" />
+    <circle cx="244.44" cy="312.26" data-x="244.44" data-y="312.26" r="0.8404444444444445" fill="#fff" />
+    <circle cx="278.40" cy="170.26" data-x="278.40" data-y="170.26" r="0.4643598615916955" fill="#fff" />
+    <circle cx="151.47" cy="320.98" data-x="151.47" data-y="320.98" r="0.9228435217224145" fill="#fff" />
+    <circle cx="284.40" cy="202.55" data-x="284.40" data-y="202.55" r="0.8014363706266818" fill="#fff" />
+    <circle cx="161.18" cy="233.28" data-x="161.18" data-y="233.28" r="0.8168642829680894" fill="#fff" />
+    <circle cx="196.33" cy="295.47" data-x="196.33" data-y="295.47" r="0.5419669357939254" fill="#fff" />
+    <circle cx="232.77" cy="326.99" data-x="232.77" data-y="326.99" r="0.9400246059207997" fill="#fff" />
+    <circle cx="257.53" cy="175.36" data-x="257.53" data-y="175.36" r="0.9574394463667821" fill="#fff" />
+    <circle cx="193.49" cy="195.51" data-x="193.49" data-y="195.51" r="0.9228435217224145" fill="#fff" />
+    <circle cx="237.89" cy="19.05" data-x="237.89" data-y="19.05" r="2.155557093425606" fill="#fff" />
+    <circle cx="256.69" cy="333.33" data-x="256.69" data-y="333.33" r="0.5637062668204537" fill="#fff" />
+    <circle cx="259.19" cy="255.77" data-x="259.19" data-y="255.77" r="0.6999861591695502" fill="#fff" />
+    <circle cx="220.95" cy="395.19" data-x="220.95" data-y="395.19" r="0.46877201076509034" fill="#fff" />
+    <circle cx="234.44" cy="243.81" data-x="234.44" data-y="243.81" r="0.9400246059207997" fill="#fff" />
+    <circle cx="293.39" cy="337.08" data-x="293.39" data-y="337.08" r="0.8091211072664362" fill="#fff" />
+    <circle cx="216.68" cy="253.78" data-x="216.68" data-y="253.78" r="0.9314048442906573" fill="#fff" />
+    <circle cx="221.65" cy="328.34" data-x="221.65" data-y="328.34" r="0.9400246059207997" fill="#fff" />
+    <circle cx="141.84" cy="163.38" data-x="141.84" data-y="163.38" r="0.8484213763936947" fill="#fff" />
+    <circle cx="191.81" cy="236.86" data-x="191.81" data-y="236.86" r="0.7349034986543638" fill="#fff" />
+    <circle cx="130.82" cy="247.02" data-x="130.82" data-y="247.02" r="0.8246658977316417" fill="#fff" />
+    <circle cx="245.56" cy="290.20" data-x="245.56" data-y="290.20" r="0.6221453287197232" fill="#fff" />
+    <circle cx="212.40" cy="337.60" data-x="212.40" data-y="337.60" r="0.8484213763936947" fill="#fff" />
+    <circle cx="255.05" cy="313.30" data-x="255.05" data-y="313.30" r="0.5366782006920415" fill="#fff" />
+    <circle cx="183.44" cy="50.18" data-x="183.44" data-y="50.18" r="0.34444290657439447" fill="#fff" />
+    <circle cx="178.25" cy="147.94" data-x="178.25" data-y="147.94" r="0.8246658977316417" fill="#fff" />
+    <circle cx="182.75" cy="322.15" data-x="182.75" data-y="322.15" r="1.0668373702422145" fill="#fff" />
+    <circle cx="147.23" cy="261.65" data-x="147.23" data-y="261.65" r="0.9228435217224145" fill="#fff" />
+    <circle cx="200.75" cy="315.16" data-x="200.75" data-y="315.16" r="0.8727028066128415" fill="#fff" />
+    <circle cx="278.56" cy="216.85" data-x="278.56" data-y="216.85" r="0.7278031526336024" fill="#fff" />
+    <circle cx="208.28" cy="374.82" data-x="208.28" data-y="374.82" r="1.1644306036139949" fill="#fff" />
+    <circle cx="146.24" cy="329.61" data-x="146.24" data-y="329.61" r="1.0110865051903115" fill="#fff" />
+    <circle cx="302.98" cy="194.26" data-x="302.98" data-y="194.26" r="1.941231833910035" fill="#fff" />
+    <circle cx="301.66" cy="391.07" data-x="301.66" data-y="391.07" r="0.3337777777777778" fill="#fff" />
+    <circle cx="211.17" cy="328.59" data-x="211.17" data-y="328.59" r="0.8727028066128415" fill="#fff" />
+    <circle cx="124.75" cy="359.00" data-x="124.75" data-y="359.00" r="0.48235909265667054" fill="#fff" />
+    <circle cx="140.26" cy="105.59" data-x="140.26" data-y="105.59" r="0.4643598615916955" fill="#fff" />
+    <circle cx="165.78" cy="296.20" data-x="165.78" data-y="296.20" r="0.5581837754709728" fill="#fff" />
+    <circle cx="182.97" cy="376.90" data-x="182.97" data-y="376.90" r="1.1051733948481355" fill="#fff" />
+    <circle cx="143.37" cy="221.43" data-x="143.37" data-y="221.43" r="0.9750880430603615" fill="#fff" />
+    <circle cx="88.76" cy="188.41" data-x="88.76" data-y="188.41" r="1.2154186851211073" fill="#fff" />
+    <circle cx="304.17" cy="185.35" data-x="304.17" data-y="185.35" r="2.2" fill="#fff" />
+    <circle cx="111.07" cy="157.22" data-x="111.07" data-y="157.22" r="0.6600138408304499" fill="#fff" />
+    <circle cx="263.67" cy="218.89" data-x="263.67" data-y="218.89" r="0.7068527489427143" fill="#fff" />
+    <circle cx="300.70" cy="158.62" data-x="300.70" data-y="158.62" r="0.5863806228373702" fill="#fff" />
+    <circle cx="217.95" cy="178.86" data-x="217.95" data-y="178.86" r="1.04801999231065" fill="#fff" />
+    <circle cx="208.34" cy="72.89" data-x="208.34" data-y="72.89" r="0.6600138408304499" fill="#fff" />
+    <circle cx="279.58" cy="225.01" data-x="279.58" data-y="225.01" r="0.7349034986543638" fill="#fff" />
+    <circle cx="118.38" cy="175.82" data-x="118.38" data-y="175.82" r="0.8975101883890813" fill="#fff" />
+    <circle cx="169.35" cy="11.57" data-x="169.35" data-y="11.57" r="0.5211626297577855" fill="#fff" />
+    <circle cx="106.03" cy="90.41" data-x="106.03" data-y="90.41" r="0.33786851211072666" fill="#fff" />
+    <circle cx="273.85" cy="315.44" data-x="273.85" data-y="315.44" r="1.1149034986543638" fill="#fff" />
+    <circle cx="226.17" cy="248.79" data-x="226.17" data-y="248.79" r="0.9487028066128413" fill="#fff" />
+    <circle cx="250.95" cy="347.76" data-x="250.95" data-y="347.76" r="0.749279507881584" fill="#fff" />
+    <circle cx="185.62" cy="157.74" data-x="185.62" data-y="157.74" r="0.9058961937716263" fill="#fff" />
+    <circle cx="179.36" cy="368.05" data-x="179.36" data-y="368.05" r="1.0763337178008459" fill="#fff" />
+    <circle cx="170.97" cy="311.88" data-x="170.97" data-y="311.88" r="0.9314048442906573" fill="#fff" />
+    <circle cx="239.11" cy="79.21" data-x="239.11" data-y="79.21" r="0.7420622837370243" fill="#fff" />
+    <circle cx="172.29" cy="234.47" data-x="172.29" data-y="234.47" r="0.8246658977316417" fill="#fff" />
+    <circle cx="286.22" cy="229.96" data-x="286.22" data-y="229.96" r="1.8056532103037293" fill="#fff" />
+    <circle cx="197.01" cy="115.70" data-x="197.01" data-y="115.70" r="1.0294363706266823" fill="#fff" />
+    <circle cx="180.30" cy="388.73" data-x="180.30" data-y="388.73" r="1.2678677431757017" fill="#fff" />
+    <circle cx="224.66" cy="170.86" data-x="224.66" data-y="170.86" r="0.9574394463667821" fill="#fff" />
+    <circle cx="116.49" cy="262.97" data-x="116.49" data-y="262.97" r="1.4110726643598617" fill="#fff" />
+    <circle cx="119.48" cy="242.89" data-x="119.48" data-y="242.89" r="0.7349034986543638" fill="#fff" />
+    <circle cx="235.99" cy="124.93" data-x="235.99" data-y="124.93" r="0.9314048442906573" fill="#fff" />
+    <circle cx="214.04" cy="219.39" data-x="214.04" data-y="219.39" r="0.8975101883890813" fill="#fff" />
+    <circle cx="146.68" cy="390.56" data-x="146.68" data-y="390.56" r="0.3262975778546713" fill="#fff" />
+    <circle cx="293.46" cy="96.00" data-x="293.46" data-y="96.00" r="0.34219300269127256" fill="#fff" />
+    <circle cx="40.96" cy="389.52" data-x="40.96" data-y="389.52" r="0.32807996924259897" fill="#fff" />
+    <circle cx="175.36" cy="288.94" data-x="175.36" data-y="288.94" r="0.6283106497500961" fill="#fff" />
+    <circle cx="240.05" cy="346.65" data-x="240.05" data-y="346.65" r="0.7787327950788159" fill="#fff" />
+    <circle cx="223.55" cy="299.02" data-x="223.55" data-y="299.02" r="0.6408166089965398" fill="#fff" />
+    <circle cx="158.87" cy="139.15" data-x="158.87" data-y="139.15" r="0.9929703960015379" fill="#fff" />
+    <circle cx="241.97" cy="223.66" data-x="241.97" data-y="223.66" r="0.9574394463667821" fill="#fff" />
+    <circle cx="251.98" cy="223.16" data-x="251.98" data-y="223.16" r="0.9143406382160706" fill="#fff" />
+    <circle cx="86.81" cy="178.52" data-x="86.81" data-y="178.52" r="0.984" fill="#fff" />
+    <circle cx="131.43" cy="117.52" data-x="131.43" data-y="117.52" r="0.34219300269127256" fill="#fff" />
+    <circle cx="232.06" cy="382.00" data-x="232.06" data-y="382.00" r="0.45147404844290656" fill="#fff" />
+    <circle cx="148.92" cy="194.83" data-x="148.92" data-y="194.83" r="1.1948481353325644" fill="#fff" />
+    <circle cx="232.07" cy="227.53" data-x="232.07" data-y="227.53" r="0.9314048442906573" fill="#fff" />
+    <circle cx="266.46" cy="263.66" data-x="266.46" data-y="263.66" r="2.140859669357939" fill="#fff" />
+    <circle cx="214.01" cy="349.62" data-x="214.01" data-y="349.62" r="0.9228435217224145" fill="#fff" />
+    <circle cx="154.20" cy="268.41" data-x="154.20" data-y="268.41" r="0.9487028066128413" fill="#fff" />
+    <circle cx="179.19" cy="355.27" data-x="179.19" data-y="355.27" r="0.9929703960015379" fill="#fff" />
+    <circle cx="156.39" cy="285.35" data-x="156.39" data-y="285.35" r="0.5314479046520568" fill="#fff" />
+    <circle cx="172.13" cy="177.35" data-x="172.13" data-y="177.35" r="1.0955017301038064" fill="#fff" />
+    <circle cx="177.93" cy="167.40" data-x="177.93" data-y="167.40" r="0.9400246059207997" fill="#fff" />
+    <circle cx="151.84" cy="309.68" data-x="151.84" data-y="309.68" r="0.8014363706266818" fill="#fff" />
+    <circle cx="227.51" cy="374.87" data-x="227.51" data-y="374.87" r="0.8809134948096886" fill="#fff" />
+    <circle cx="129.98" cy="308.26" data-x="129.98" data-y="308.26" r="0.7938100730488273" fill="#fff" />
+    <circle cx="246.93" cy="68.34" data-x="246.93" data-y="68.34" r="0.5863806228373702" fill="#fff" />
+    <circle cx="223.26" cy="116.24" data-x="223.26" data-y="116.24" r="0.9662345251826221" fill="#fff" />
+    <circle cx="165.80" cy="266.31" data-x="165.80" data-y="266.31" r="0.8975101883890813" fill="#fff" />
+    <circle cx="233.83" cy="215.46" data-x="233.83" data-y="215.46" r="1.04801999231065" fill="#fff" />
+    <circle cx="176.42" cy="264.03" data-x="176.42" data-y="264.03" r="0.9750880430603615" fill="#fff" />
+    <circle cx="151.59" cy="111.88" data-x="151.59" data-y="111.88" r="0.3982945021145713" fill="#fff" />
+    <circle cx="267.02" cy="210.26" data-x="267.02" data-y="210.26" r="0.6665297962322183" fill="#fff" />
+    <circle cx="84.26" cy="134.90" data-x="84.26" data-y="134.90" r="1.6132425990003847" fill="#fff" />
+    <circle cx="298.53" cy="166.49" data-x="298.53" data-y="166.49" r="2.068249134948097" fill="#fff" />
+    <circle cx="232.45" cy="267.71" data-x="232.45" data-y="267.71" r="0.7862422145328719" fill="#fff" />
+    <circle cx="147.96" cy="145.66" data-x="147.96" data-y="145.66" r="0.9487028066128413" fill="#fff" />
+    <circle cx="184.96" cy="139.81" data-x="184.96" data-y="139.81" r="0.9750880430603615" fill="#fff" />
+    <circle cx="297.81" cy="210.39" data-x="297.81" data-y="210.39" r="1.3997062668204538" fill="#fff" />
+    <circle cx="192.74" cy="370.50" data-x="192.74" data-y="370.50" r="1.0573994617454825" fill="#fff" />
+    <circle cx="239.69" cy="166.74" data-x="239.69" data-y="166.74" r="0.9228435217224145" fill="#fff" />
+    <circle cx="255.24" cy="245.38" data-x="255.24" data-y="245.38" r="0.771281814686659" fill="#fff" />
+    <circle cx="201.30" cy="388.24" data-x="201.30" data-y="388.24" r="0.48235909265667054" fill="#fff" />
+    <circle cx="186.57" cy="362.13" data-x="186.57" data-y="362.13" r="1.0763337178008459" fill="#fff" />
+    <circle cx="147.88" cy="173.45" data-x="147.88" data-y="173.45" r="1.1246920415224915" fill="#fff" />
+    <circle cx="157.52" cy="221.98" data-x="157.52" data-y="221.98" r="1.0202322183775472" fill="#fff" />
+    <circle cx="217.83" cy="210.57" data-x="217.83" data-y="210.57" r="0.984" fill="#fff" />
+    <circle cx="273.69" cy="244.93" data-x="273.69" data-y="244.93" r="0.7137777777777778" fill="#fff" />
+    <circle cx="171.02" cy="188.21" data-x="171.02" data-y="188.21" r="1.0019992310649748" fill="#fff" />
+    <circle cx="175.41" cy="345.64" data-x="175.41" data-y="345.64" r="0.9750880430603615" fill="#fff" />
+    <circle cx="99.81" cy="392.09" data-x="99.81" data-y="392.09" r="0.32457362552864283" fill="#fff" />
+    <circle cx="313.62" cy="98.40" data-x="313.62" data-y="98.40" r="0.5012933487120339" fill="#fff" />
+    <circle cx="183.77" cy="109.39" data-x="183.77" data-y="109.39" r="0.984" fill="#fff" />
+    <circle cx="204.03" cy="166.96" data-x="204.03" data-y="166.96" r="0.9143406382160706" fill="#fff" />
+    <circle cx="194.54" cy="324.61" data-x="194.54" data-y="324.61" r="0.9058961937716263" fill="#fff" />
+    <circle cx="285.04" cy="194.77" data-x="285.04" data-y="194.77" r="1.1051733948481355" fill="#fff" />
+    <circle cx="294.25" cy="139.61" data-x="294.25" data-y="139.61" r="0.34000153787005" fill="#fff" />
+    <circle cx="278.58" cy="391.70" data-x="278.58" data-y="391.70" r="0.32290811226451366" fill="#fff" />
+    <circle cx="295.19" cy="195.53" data-x="295.19" data-y="195.53" r="1.2257916186082276" fill="#fff" />
+    <circle cx="303.71" cy="66.18" data-x="303.71" data-y="66.18" r="0.7787327950788159" fill="#fff" />
+    <circle cx="266.80" cy="33.79" data-x="266.80" data-y="33.79" r="0.7638892733564014" fill="#fff" />
+    <circle cx="167.34" cy="339.30" data-x="167.34" data-y="339.30" r="0.9228435217224145" fill="#fff" />
+    <circle cx="288.72" cy="155.45" data-x="288.72" data-y="155.45" r="0.3262975778546713" fill="#fff" />
+    <circle cx="197.39" cy="268.00" data-x="197.39" data-y="268.00" r="1.0019992310649748" fill="#fff" />
+    <circle cx="110.46" cy="142.16" data-x="110.46" data-y="142.16" r="0.45147404844290656" fill="#fff" />
+    <circle cx="197.36" cy="343.64" data-x="197.36" data-y="343.64" r="1.0110865051903115" fill="#fff" />
+    <circle cx="80.17" cy="380.68" data-x="80.17" data-y="380.68" r="0.32457362552864283" fill="#fff" />
+    <circle cx="188.06" cy="227.94" data-x="188.06" data-y="227.94" r="0.756555171088043" fill="#fff" />
+    <circle cx="100.24" cy="187.40" data-x="100.24" data-y="187.40" r="1.0955017301038064" fill="#fff" />
+    <circle cx="284.43" cy="346.58" data-x="284.43" data-y="346.58" r="0.33579392541330255" fill="#fff" />
+    <circle cx="250.09" cy="142.95" data-x="250.09" data-y="142.95" r="0.6283106497500961" fill="#fff" />
+    <circle cx="3.98" cy="377.16" data-x="3.98" data-y="377.16" r="0.5473141099577086" fill="#fff" />
+    <circle cx="193.36" cy="396.98" data-x="193.36" data-y="396.98" r="0.4557108804306036" fill="#fff" />
+    <circle cx="151.84" cy="205.76" data-x="151.84" data-y="205.76" r="1.1544083044982698" fill="#fff" />
+    <circle cx="296.99" cy="184.75" data-x="296.99" data-y="184.75" r="0.7420622837370243" fill="#fff" />
+    <circle cx="264.34" cy="126.77" data-x="264.34" data-y="126.77" r="0.6731041906958861" fill="#fff" />
+    <circle cx="87.46" cy="353.49" data-x="87.46" data-y="353.49" r="0.33786851211072666" fill="#fff" />
+    <circle cx="217.24" cy="367.87" data-x="217.24" data-y="367.87" r="1.0202322183775472" fill="#fff" />
+    <circle cx="94.63" cy="217.60" data-x="94.63" data-y="217.60" r="1.1544083044982698" fill="#fff" />
+    <circle cx="163.34" cy="213.19" data-x="163.34" data-y="213.19" r="0.984" fill="#fff" />
+    <circle cx="276.86" cy="374.98" data-x="276.86" data-y="374.98" r="0.32807996924259897" fill="#fff" />
+    <circle cx="130.32" cy="33.19" data-x="130.32" data-y="33.19" r="0.47777162629757786" fill="#fff" />
+    <circle cx="303.22" cy="174.77" data-x="303.22" data-y="174.77" r="1.8862991157247213" fill="#fff" />
+    <circle cx="397.89" cy="389.95" data-x="397.89" data-y="389.95" r="0.35402691272587467" fill="#fff" />
+    <circle cx="210.93" cy="59.08" data-x="210.93" data-y="59.08" r="0.5314479046520568" fill="#fff" />
+    <circle cx="243.87" cy="245.35" data-x="243.87" data-y="245.35" r="0.8975101883890813" fill="#fff" />
+    <circle cx="316.71" cy="368.51" data-x="316.71" data-y="368.51" r="0.3337777777777778" fill="#fff" />
+    <circle cx="185.23" cy="343.38" data-x="185.23" data-y="343.38" r="1.0202322183775472" fill="#fff" />
+    <circle cx="192.20" cy="183.87" data-x="192.20" data-y="183.87" r="1.0019992310649748" fill="#fff" />
+    <circle cx="263.83" cy="49.72" data-x="263.83" data-y="49.72" r="0.4351111111111111" fill="#fff" />
+    <circle cx="160.79" cy="383.99" data-x="160.79" data-y="383.99" r="1.0955017301038064" fill="#fff" />
+    <circle cx="96.93" cy="172.89" data-x="96.93" data-y="172.89" r="1.0110865051903115" fill="#fff" />
+    <circle cx="213.96" cy="141.55" data-x="213.96" data-y="141.55" r="0.756555171088043" fill="#fff" />
+    <circle cx="117.88" cy="229.49" data-x="117.88" data-y="229.49" r="0.7938100730488273" fill="#fff" />
+    <circle cx="134.50" cy="351.76" data-x="134.50" data-y="351.76" r="0.8891826220684353" fill="#fff" />
+    <circle cx="179.03" cy="206.62" data-x="179.03" data-y="206.62" r="0.749279507881584" fill="#fff" />
+    <circle cx="243.07" cy="133.28" data-x="243.07" data-y="133.28" r="0.5921953094963476" fill="#fff" />
+    <circle cx="243.41" cy="30.72" data-x="243.41" data-y="30.72" r="1.7792387543252595" fill="#fff" />
+    <circle cx="112.10" cy="377.76" data-x="112.10" data-y="377.76" r="0.32290811226451366" fill="#fff" />
+    <circle cx="162.79" cy="128.84" data-x="162.79" data-y="128.84" r="0.9487028066128413" fill="#fff" />
+    <circle cx="101.89" cy="207.46" data-x="101.89" data-y="207.46" r="1.0110865051903115" fill="#fff" />
+    <circle cx="275.56" cy="103.80" data-x="275.56" data-y="103.80" r="0.3790096116878124" fill="#fff" />
+    <circle cx="195.43" cy="126.92" data-x="195.43" data-y="126.92" r="1.1444444444444444" fill="#fff" />
+    <circle cx="211.19" cy="171.46" data-x="211.19" data-y="171.46" r="1.0668373702422145" fill="#fff" />
+    <circle cx="159.86" cy="176.81" data-x="159.86" data-y="176.81" r="1.1345390234525183" fill="#fff" />
+    <circle cx="130.63" cy="144.50" data-x="130.63" data-y="144.50" r="0.7420622837370243" fill="#fff" />
+    <circle cx="171.56" cy="324.88" data-x="171.56" data-y="324.88" r="0.8168642829680894" fill="#fff" />
+    <circle cx="234.00" cy="187.79" data-x="234.00" data-y="187.79" r="1.1149034986543638" fill="#fff" />
+    <circle cx="222.59" cy="155.74" data-x="222.59" data-y="155.74" r="1.0019992310649748" fill="#fff" />
+    <circle cx="188.66" cy="26.44" data-x="188.66" data-y="26.44" r="0.32807996924259897" fill="#fff" />
+    <circle cx="176.86" cy="244.31" data-x="176.86" data-y="244.31" r="0.6797370242214533" fill="#fff" />
+    <circle cx="232.38" cy="177.09" data-x="232.38" data-y="177.09" r="1.1149034986543638" fill="#fff" />
+    <circle cx="137.37" cy="362.45" data-x="137.37" data-y="362.45" r="0.9058961937716263" fill="#fff" />
+    <circle cx="87.50" cy="145.44" data-x="87.50" data-y="145.44" r="0.9314048442906573" fill="#fff" />
+    <circle cx="173.67" cy="92.36" data-x="173.67" data-y="92.36" r="0.5314479046520568" fill="#fff" />
+    <circle cx="225.40" cy="143.21" data-x="225.40" data-y="143.21" r="0.8325259515570935" fill="#fff" />
+    <circle cx="195.62" cy="174.04" data-x="195.62" data-y="174.04" r="0.9143406382160706" fill="#fff" />
+    <circle cx="130.39" cy="225.18" data-x="130.39" data-y="225.18" r="0.9314048442906573" fill="#fff" />
+    <circle cx="334.81" cy="376.46" data-x="334.81" data-y="376.46" r="0.3262975778546713" fill="#fff" />
+    <circle cx="213.12" cy="188.43" data-x="213.12" data-y="188.43" r="1.0110865051903115" fill="#fff" />
+    <circle cx="134.04" cy="328.44" data-x="134.04" data-y="328.44" r="0.9314048442906573" fill="#fff" />
+    <circle cx="123.16" cy="298.17" data-x="123.16" data-y="298.17" r="0.7938100730488273" fill="#fff" />
+    <circle cx="106.01" cy="111.53" data-x="106.01" data-y="111.53" r="0.3262975778546713" fill="#fff" />
+    <circle cx="202.85" cy="352.57" data-x="202.85" data-y="352.57" r="0.9662345251826221" fill="#fff" />
+    <circle cx="157.66" cy="148.15" data-x="157.66" data-y="148.15" r="0.6600138408304499" fill="#fff" />
+    <circle cx="87.85" cy="87.37" data-x="87.85" data-y="87.37" r="1.9970995770857365" fill="#fff" />
+    <circle cx="100.52" cy="327.30" data-x="100.52" data-y="327.30" r="0.5637062668204537" fill="#fff" />
+    <circle cx="128.94" cy="181.18" data-x="128.94" data-y="181.18" r="1.04801999231065" fill="#fff" />
+    <circle cx="125.92" cy="84.01" data-x="125.92" data-y="84.01" r="0.32807996924259897" fill="#fff" />
+    <circle cx="266.67" cy="182.83" data-x="266.67" data-y="182.83" r="0.8564567474048443" fill="#fff" />
+    <circle cx="168.60" cy="31.61" data-x="168.60" data-y="31.61" r="0.35402691272587467" fill="#fff" />
+    <circle cx="202.38" cy="333.45" data-x="202.38" data-y="333.45" r="0.8975101883890813" fill="#fff" />
+    <circle cx="218.43" cy="196.31" data-x="218.43" data-y="196.31" r="0.984" fill="#fff" />
+    <circle cx="119.48" cy="187.64" data-x="119.48" data-y="187.64" r="0.9143406382160706" fill="#fff" />
+    <circle cx="146.53" cy="340.42" data-x="146.53" data-y="340.42" r="0.9574394463667821" fill="#fff" />
+    <circle cx="253.55" cy="265.53" data-x="253.55" data-y="265.53" r="0.6040000000000001" fill="#fff" />
+    <circle cx="201.30" cy="204.24" data-x="201.30" data-y="204.24" r="0.8168642829680894" fill="#fff" />
+    <circle cx="153.53" cy="297.96" data-x="153.53" data-y="297.96" r="0.6665297962322183" fill="#fff" />
+    <circle cx="210.67" cy="359.05" data-x="210.67" data-y="359.05" r="1.0386989619377163" fill="#fff" />
+    <circle cx="210.62" cy="299.95" data-x="210.62" data-y="299.95" r="0.5863806228373702" fill="#fff" />
+    <circle cx="250.76" cy="193.12" data-x="250.76" data-y="193.12" r="1.0386989619377163" fill="#fff" />
+    <circle cx="92.84" cy="75.88" data-x="92.84" data-y="75.88" r="1.7142252979623225" fill="#fff" />
+    <circle cx="230.00" cy="87.14" data-x="230.00" data-y="87.14" r="0.8404444444444445" fill="#fff" />
+    <circle cx="271.81" cy="254.19" data-x="271.81" data-y="254.19" r="1.9690488273740872" fill="#fff" />
+    <circle cx="303.86" cy="150.42" data-x="303.86" data-y="150.42" r="2.0112126105344097" fill="#fff" />
+    <circle cx="197.10" cy="230.74" data-x="197.10" data-y="230.74" r="0.8404444444444445" fill="#fff" />
+    <circle cx="87.31" cy="165.17" data-x="87.31" data-y="165.17" r="1.1948481353325644" fill="#fff" />
+    <circle cx="211.75" cy="130.56" data-x="211.75" data-y="130.56" r="1.0955017301038064" fill="#fff" />
+    <circle cx="200.38" cy="94.86" data-x="200.38" data-y="94.86" r="0.8809134948096886" fill="#fff" />
+    <circle cx="153.01" cy="63.58" data-x="153.01" data-y="63.58" r="0.3182622068435217" fill="#fff" />
+    <circle cx="134.82" cy="172.70" data-x="134.82" data-y="172.70" r="1.0668373702422145" fill="#fff" />
+    <circle cx="148.99" cy="156.43" data-x="148.99" data-y="156.43" r="0.984" fill="#fff" />
+    <circle cx="239.01" cy="278.13" data-x="239.01" data-y="278.13" r="0.49647212610534414" fill="#fff" />
+    <circle cx="205.38" cy="213.23" data-x="205.38" data-y="213.23" r="0.771281814686659" fill="#fff" />
+    <circle cx="107.27" cy="316.44" data-x="107.27" data-y="316.44" r="0.8325259515570935" fill="#fff" />
+    <circle cx="259.05" cy="163.55" data-x="259.05" data-y="163.55" r="0.7638892733564014" fill="#fff" />
+    <circle cx="31.47" cy="364.17" data-x="31.47" data-y="364.17" r="0.47324259900038446" fill="#fff" />
+    <circle cx="191.42" cy="314.88" data-x="191.42" data-y="314.88" r="1.0858885044213766" fill="#fff" />
+    <circle cx="249.39" cy="373.81" data-x="249.39" data-y="373.81" r="0.5012933487120339" fill="#fff" />
+    <circle cx="226.78" cy="318.45" data-x="226.78" data-y="318.45" r="0.8325259515570935" fill="#fff" />
+    <circle cx="243.46" cy="300.66" data-x="243.46" data-y="300.66" r="0.7420622837370243" fill="#fff" />
+    <circle cx="226.71" cy="236.86" data-x="226.71" data-y="236.86" r="0.9058961937716263" fill="#fff" />
+    <circle cx="225.79" cy="206.09" data-x="225.79" data-y="206.09" r="1.0858885044213766" fill="#fff" />
+    <circle cx="231.77" cy="344.25" data-x="231.77" data-y="344.25" r="0.8891826220684353" fill="#fff" />
+    <circle cx="204.95" cy="322.18" data-x="204.95" data-y="322.18" r="0.8325259515570935" fill="#fff" />
+    <circle cx="139.31" cy="198.97" data-x="139.31" data-y="198.97" r="1.0202322183775472" fill="#fff" />
+    <circle cx="232.83" cy="97.62" data-x="232.83" data-y="97.62" r="0.8727028066128415" fill="#fff" />
+    <circle cx="137.40" cy="22.80" data-x="137.40" data-y="22.80" r="0.4351111111111111" fill="#fff" />
+    <circle cx="156.66" cy="121.41" data-x="156.66" data-y="121.41" r="0.6864282968089197" fill="#fff" />
+    <circle cx="141.76" cy="303.44" data-x="141.76" data-y="303.44" r="0.7638892733564014" fill="#fff" />
+    <circle cx="251.63" cy="235.58" data-x="251.63" data-y="235.58" r="0.8727028066128415" fill="#fff" />
+    <circle cx="190.70" cy="202.65" data-x="190.70" data-y="202.65" r="0.8891826220684353" fill="#fff" />
+    <circle cx="208.87" cy="247.40" data-x="208.87" data-y="247.40" r="0.6221453287197232" fill="#fff" />
+    <circle cx="168.11" cy="224.15" data-x="168.11" data-y="224.15" r="0.8891826220684353" fill="#fff" />
+    <circle cx="191.08" cy="352.00" data-x="191.08" data-y="352.00" r="1.0386989619377163" fill="#fff" />
+    <circle cx="181.40" cy="8.57" data-x="181.40" data-y="8.57" r="1.2678677431757017" fill="#fff" />
+    <circle cx="230.20" cy="163.08" data-x="230.20" data-y="163.08" r="0.9314048442906573" fill="#fff" />
+    <circle cx="125.46" cy="390.90" data-x="125.46" data-y="390.90" r="0.32457362552864283" fill="#fff" />
+    <circle cx="264.34" cy="236.81" data-x="264.34" data-y="236.81" r="0.6999861591695502" fill="#fff" />
+    <circle cx="170.65" cy="374.01" data-x="170.65" data-y="374.01" r="1.0763337178008459" fill="#fff" />
+    <circle cx="279.56" cy="141.93" data-x="279.56" data-y="141.93" r="0.35154325259515573" fill="#fff" />
+    <circle cx="222.32" cy="383.72" data-x="222.32" data-y="383.72" r="0.5211626297577855" fill="#fff" />
+    <circle cx="169.85" cy="362.78" data-x="169.85" data-y="362.78" r="1.0955017301038064" fill="#fff" />
+    <circle cx="84.76" cy="122.05" data-x="84.76" data-y="122.05" r="1.3217777777777777" fill="#fff" />
+    <circle cx="170.70" cy="197.47" data-x="170.70" data-y="197.47" r="0.6999861591695502" fill="#fff" />
+    <circle cx="143.91" cy="122.05" data-x="143.91" data-y="122.05" r="0.7349034986543638" fill="#fff" />
+    <circle cx="166.62" cy="167.91" data-x="166.62" data-y="167.91" r="0.9228435217224145" fill="#fff" />
+    <circle cx="180.16" cy="223.88" data-x="180.16" data-y="223.88" r="0.7207612456747405" fill="#fff" />
+    <circle cx="169.03" cy="254.71" data-x="169.03" data-y="254.71" r="0.8645505574778931" fill="#fff" />
+    <circle cx="121.42" cy="331.85" data-x="121.42" data-y="331.85" r="0.5637062668204537" fill="#fff" />
+    <circle cx="160.23" cy="372.78" data-x="160.23" data-y="372.78" r="1.1345390234525183" fill="#fff" />
+    <circle cx="250.17" cy="82.92" data-x="250.17" data-y="82.92" r="0.49647212610534414" fill="#fff" />
+    <circle cx="182.50" cy="198.13" data-x="182.50" data-y="198.13" r="0.8564567474048443" fill="#fff" />
+    <circle cx="181.81" cy="234.81" data-x="181.81" data-y="234.81" r="0.7068527489427143" fill="#fff" />
+    <circle cx="229.29" cy="195.96" data-x="229.29" data-y="195.96" r="1.1644306036139949" fill="#fff" />
+    <circle cx="150.97" cy="132.37" data-x="150.97" data-y="132.37" r="0.4917093425605536" fill="#fff" />
+    <circle cx="264.62" cy="247.31" data-x="264.62" data-y="247.31" r="0.7068527489427143" fill="#fff" />
+    <circle cx="152.14" cy="214.82" data-x="152.14" data-y="214.82" r="1.0858885044213766" fill="#fff" />
+    <circle cx="122.36" cy="166.14" data-x="122.36" data-y="166.14" r="0.8809134948096886" fill="#fff" />
+    <circle cx="253.38" cy="107.57" data-x="253.38" data-y="107.57" r="0.6797370242214533" fill="#fff" />
+    <circle cx="173.46" cy="64.93" data-x="173.46" data-y="64.93" r="0.3213010380622837" fill="#fff" />
+    <circle cx="275.24" cy="203.92" data-x="275.24" data-y="203.92" r="0.5314479046520568" fill="#fff" />
+    <circle cx="365.20" cy="238.71" data-x="365.20" data-y="238.71" r="0.3" fill="#fff" />
+    <circle cx="269.33" cy="146.27" data-x="269.33" data-y="146.27" r="0.6731041906958861" fill="#fff" />
+    <circle cx="131.07" cy="130.77" data-x="131.07" data-y="130.77" r="0.5061730103806228" fill="#fff" />
+    <circle cx="257.34" cy="117.81" data-x="257.34" data-y="117.81" r="0.7787327950788159" fill="#fff" />
+    <circle cx="89.14" cy="333.78" data-x="89.14" data-y="333.78" r="0.46877201076509034" fill="#fff" />
+    <circle cx="129.60" cy="236.23" data-x="129.60" data-y="236.23" r="0.9400246059207997" fill="#fff" />
+    <circle cx="105.72" cy="360.42" data-x="105.72" data-y="360.42" r="0.3141422529796232" fill="#fff" />
+    <circle cx="196.81" cy="141.97" data-x="196.81" data-y="141.97" r="1.0573994617454825" fill="#fff" />
+    <circle cx="242.66" cy="184.03" data-x="242.66" data-y="184.03" r="1.1149034986543638" fill="#fff" />
+    <circle cx="140.75" cy="136.42" data-x="140.75" data-y="136.42" r="0.6999861591695502" fill="#fff" />
+    <circle cx="234.75" cy="63.25" data-x="234.75" data-y="63.25" r="0.5211626297577855" fill="#fff" />
+    <circle cx="177.88" cy="398.70" data-x="177.88" data-y="398.70" r="0.5473141099577086" fill="#fff" />
+    <circle cx="108.26" cy="181.93" data-x="108.26" data-y="181.93" r="0.7068527489427143" fill="#fff" />
+    <circle cx="187.61" cy="168.52" data-x="187.61" data-y="168.52" r="0.8564567474048443" fill="#fff" />
+    <circle cx="107.36" cy="236.93" data-x="107.36" data-y="236.93" r="0.9058961937716263" fill="#fff" />
+    <circle cx="219.29" cy="27.92" data-x="219.29" data-y="27.92" r="0.31288581314878894" fill="#fff" />
+    <circle cx="272.94" cy="176.87" data-x="272.94" data-y="176.87" r="0.7137777777777778" fill="#fff" />
+    <circle cx="288.95" cy="185.41" data-x="288.95" data-y="185.41" r="0.8891826220684353" fill="#fff" />
+    <circle cx="260.43" cy="139.67" data-x="260.43" data-y="139.67" r="0.6099900038446752" fill="#fff" />
+    <circle cx="118.17" cy="126.42" data-x="118.17" data-y="126.42" r="0.4917093425605536" fill="#fff" />
+    <circle cx="309.82" cy="344.46" data-x="309.82" data-y="344.46" r="0.6099900038446752" fill="#fff" />
+    <circle cx="90.19" cy="203.90" data-x="90.19" data-y="203.90" r="1.6506728181468666" fill="#fff" />
+    <circle cx="225.26" cy="349.53" data-x="225.26" data-y="349.53" r="0.9487028066128413" fill="#fff" />
+    <circle cx="217.73" cy="243.16" data-x="217.73" data-y="243.16" r="0.7137777777777778" fill="#fff" />
+    <circle cx="312.56" cy="90.93" data-x="312.56" data-y="90.93" r="2.170312956555171" fill="#fff" />
+    <circle cx="229.23" cy="74.34" data-x="229.23" data-y="74.34" r="0.7938100730488273" fill="#fff" />
+    <circle cx="277.40" cy="127.14" data-x="277.40" data-y="127.14" r="0.35154325259515573" fill="#fff" />
+    <circle cx="204.66" cy="147.59" data-x="204.66" data-y="147.59" r="0.8168642829680894" fill="#fff" />
+    <circle cx="148.11" cy="358.17" data-x="148.11" data-y="358.17" r="0.9487028066128413" fill="#fff" />
+    <circle cx="133.62" cy="340.48" data-x="133.62" data-y="340.48" r="0.8809134948096886" fill="#fff" />
+    <circle cx="197.92" cy="247.19" data-x="197.92" data-y="247.19" r="0.8014363706266818" fill="#fff" />
+    <circle cx="113.58" cy="195.94" data-x="113.58" data-y="195.94" r="0.7137777777777778" fill="#fff" />
+    <circle cx="220.54" cy="227.57" data-x="220.54" data-y="227.57" r="0.9400246059207997" fill="#fff" />
+    <circle cx="140.36" cy="372.92" data-x="140.36" data-y="372.92" r="0.8809134948096886" fill="#fff" />
+    <circle cx="277.07" cy="234.38" data-x="277.07" data-y="234.38" r="0.3" fill="#fff" />
+    <circle cx="209.89" cy="310.87" data-x="209.89" data-y="310.87" r="0.8014363706266818" fill="#fff" />
+    <circle cx="267.84" cy="362.07" data-x="267.84" data-y="362.07" r="0.4017131872356786" fill="#fff" />
+    <circle cx="259.59" cy="71.60" data-x="259.59" data-y="71.60" r="0.35402691272587467" fill="#fff" />
+    <circle cx="258.21" cy="354.78" data-x="258.21" data-y="354.78" r="0.7207612456747405" fill="#fff" />
+    <circle cx="207.08" cy="258.43" data-x="207.08" data-y="258.43" r="0.9058961937716263" fill="#fff" />
+    <circle cx="324.82" cy="350.69" data-x="324.82" data-y="350.69" r="1.0955017301038064" fill="#fff" />
+    <circle cx="160.37" cy="188.73" data-x="160.37" data-y="188.73" r="1.1444444444444444" fill="#fff" />
+    <circle cx="174.39" cy="158.01" data-x="174.39" data-y="158.01" r="0.9487028066128413" fill="#fff" />
+    <circle cx="157.47" cy="350.44" data-x="157.47" data-y="350.44" r="1.0763337178008459" fill="#fff" />
+    <circle cx="158.55" cy="94.67" data-x="158.55" data-y="94.67" r="0.38838908112264514" fill="#fff" />
+    <circle cx="156.91" cy="11.62" data-x="156.91" data-y="11.62" r="0.31975240292195306" fill="#fff" />
+    <circle cx="187.66" cy="118.89" data-x="187.66" data-y="118.89" r="1.0858885044213766" fill="#fff" />
+    <circle cx="244.59" cy="51.72" data-x="244.59" data-y="51.72" r="0.31975240292195306" fill="#fff" />
+    <circle cx="211.49" cy="117.80" data-x="211.49" data-y="117.80" r="1.0202322183775472" fill="#fff" />
+    <circle cx="244.84" cy="355.59" data-x="244.84" data-y="355.59" r="0.7787327950788159" fill="#fff" />
+    <circle cx="204.71" cy="238.19" data-x="204.71" data-y="238.19" r="0.6408166089965398" fill="#fff" />
+    <circle cx="114.68" cy="69.44" data-x="114.68" data-y="69.44" r="0.38520415224913496" fill="#fff" />
+    <circle cx="164.76" cy="157.84" data-x="164.76" data-y="157.84" r="0.9400246059207997" fill="#fff" />
+    <circle cx="128.48" cy="369.90" data-x="128.48" data-y="369.90" r="0.8246658977316417" fill="#fff" />
+    <circle cx="306.29" cy="142.96" data-x="306.29" data-y="142.96" r="1.7792387543252595" fill="#fff" />
+    <circle cx="218.89" cy="80.66" data-x="218.89" data-y="80.66" r="0.8564567474048443" fill="#fff" />
+    <circle cx="221.01" cy="67.33" data-x="221.01" data-y="67.33" r="0.5863806228373702" fill="#fff" />
+    <circle cx="204.86" cy="179.04" data-x="204.86" data-y="179.04" r="0.8325259515570935" fill="#fff" />
+    <circle cx="131.34" cy="160.28" data-x="131.34" data-y="160.28" r="0.6731041906958861" fill="#fff" />
+    <circle cx="140.33" cy="232.41" data-x="140.33" data-y="232.41" r="0.9750880430603615" fill="#fff" />
+    <circle cx="358.97" cy="367.38" data-x="358.97" data-y="367.38" r="0.49647212610534414" fill="#fff" />
+    <circle cx="260.14" cy="324.24" data-x="260.14" data-y="324.24" r="0.3154571318723568" fill="#fff" />
+    <circle cx="265.25" cy="155.96" data-x="265.25" data-y="155.96" r="0.6999861591695502" fill="#fff" />
+    <circle cx="136.71" cy="69.64" data-x="136.71" data-y="69.64" r="0.3337777777777778" fill="#fff" />
+    <circle cx="160.43" cy="329.37" data-x="160.43" data-y="329.37" r="0.8975101883890813" fill="#fff" />
+    <circle cx="274.56" cy="191.22" data-x="274.56" data-y="191.22" r="0.6408166089965398" fill="#fff" />
+    <circle cx="213.72" cy="203.75" data-x="213.72" data-y="203.75" r="0.7349034986543638" fill="#fff" />
+    <circle cx="209.77" cy="86.39" data-x="209.77" data-y="86.39" r="0.8564567474048443" fill="#fff" />
+    <circle cx="288.82" cy="112.51" data-x="288.82" data-y="112.51" r="0.32290811226451366" fill="#fff" />
+    <circle cx="115.01" cy="307.45" data-x="115.01" data-y="307.45" r="0.49647212610534414" fill="#fff" />
+    <circle cx="110.61" cy="251.33" data-x="110.61" data-y="251.33" r="1.2892564398308344" fill="#fff" />
+    <circle cx="250.71" cy="321.45" data-x="250.71" data-y="321.45" r="0.7068527489427143" fill="#fff" />
+    <circle cx="244.55" cy="213.46" data-x="244.55" data-y="213.46" r="1.0202322183775472" fill="#fff" />
+    <circle cx="214.36" cy="277.82" data-x="214.36" data-y="277.82" r="0.8246658977316417" fill="#fff" />
+    <circle cx="224.46" cy="185.54" data-x="224.46" data-y="185.54" r="1.1745113417916189" fill="#fff" />
+    <circle cx="91.16" cy="156.53" data-x="91.16" data-y="156.53" r="0.40872587466359095" fill="#fff" />
+    <circle cx="310.75" cy="82.29" data-x="310.75" data-y="82.29" r="0.5980684352172241" fill="#fff" />
+    <circle cx="267.45" cy="198.99" data-x="267.45" data-y="198.99" r="0.7638892733564014" fill="#fff" />
+    <circle cx="217.12" cy="106.98" data-x="217.12" data-y="106.98" r="0.9929703960015379" fill="#fff" />
+    <circle cx="199.60" cy="378.91" data-x="199.60" data-y="378.91" r="1.1745113417916189" fill="#fff" />
+    <circle cx="272.23" cy="163.85" data-x="272.23" data-y="163.85" r="0.6600138408304499" fill="#fff" />
+    <circle cx="148.47" cy="42.39" data-x="148.47" data-y="42.39" r="0.3262975778546713" fill="#fff" />
+    <circle cx="121.64" cy="40.18" data-x="121.64" data-y="40.18" r="0.8168642829680894" fill="#fff" />
+    <circle cx="241.45" cy="103.90" data-x="241.45" data-y="103.90" r="0.7420622837370243" fill="#fff" />
+    <circle cx="265.29" cy="107.79" data-x="265.29" data-y="107.79" r="0.6283106497500961" fill="#fff" />
+    <circle cx="220.91" cy="94.40" data-x="220.91" data-y="94.40" r="0.984" fill="#fff" />
+    <circle cx="156.97" cy="339.62" data-x="156.97" data-y="339.62" r="0.9750880430603615" fill="#fff" />
+    <circle cx="259.73" cy="343.45" data-x="259.73" data-y="343.45" r="0.5806243752402922" fill="#fff" />
+    <circle cx="190.47" cy="90.71" data-x="190.47" data-y="90.71" r="0.8484213763936947" fill="#fff" />
+    <circle cx="215.14" cy="152.51" data-x="215.14" data-y="152.51" r="0.8564567474048443" fill="#fff" />
+    <circle cx="348.22" cy="390.35" data-x="348.22" data-y="390.35" r="0.3262975778546713" fill="#fff" />
+    <circle cx="141.67" cy="243.09" data-x="141.67" data-y="243.09" r="0.9750880430603615" fill="#fff" />
+    <circle cx="108.23" cy="168.88" data-x="108.23" data-y="168.88" r="0.6535563244905807" fill="#fff" />
+    <circle cx="202.29" cy="277.99" data-x="202.29" data-y="277.99" r="0.8975101883890813" fill="#fff" />
+    <circle cx="141.17" cy="209.34" data-x="141.17" data-y="209.34" r="1.04801999231065" fill="#fff" />
+    <circle cx="222.38" cy="309.12" data-x="222.38" data-y="309.12" r="0.6999861591695502" fill="#fff" />
+    <circle cx="243.44" cy="266.82" data-x="243.44" data-y="266.82" r="0.6999861591695502" fill="#fff" />
+    <circle cx="127.90" cy="204.48" data-x="127.90" data-y="204.48" r="0.8975101883890813" fill="#fff" />
+    <circle cx="43.30" cy="356.93" data-x="43.30" data-y="356.93" r="1.0763337178008459" fill="#fff" />
+    <circle cx="248.34" cy="23.68" data-x="248.34" data-y="23.68" r="1.9830449826989622" fill="#fff" />
+    <circle cx="166.73" cy="205.62" data-x="166.73" data-y="205.62" r="0.8727028066128415" fill="#fff" />
+    <circle cx="202.23" cy="40.65" data-x="202.23" data-y="40.65" r="0.3154571318723568" fill="#fff" />
+    <circle cx="16.49" cy="382.05" data-x="16.49" data-y="382.05" r="0.34444290657439447" fill="#fff" />
+    <circle cx="180.27" cy="254.71" data-x="180.27" data-y="254.71" r="0.6931780084582853" fill="#fff" />
+    <circle cx="206.52" cy="157.56" data-x="206.52" data-y="157.56" r="0.9058961937716263" fill="#fff" />
+    <circle cx="245.50" cy="113.91" data-x="245.50" data-y="113.91" r="0.7420622837370243" fill="#fff" />
+    <circle cx="166.16" cy="115.81" data-x="166.16" data-y="115.81" r="0.7638892733564014" fill="#fff" />
+    <circle cx="158.80" cy="361.09" data-x="158.80" data-y="361.09" r="1.1051733948481355" fill="#fff" />
+    <circle cx="131.68" cy="54.16" data-x="131.68" data-y="54.16" r="0.31975240292195306" fill="#fff" />
+    <circle cx="239.57" cy="155.15" data-x="239.57" data-y="155.15" r="0.3916324490580546" fill="#fff" />
+    <circle cx="147.81" cy="18.01" data-x="147.81" data-y="18.01" r="0.41597231833910037" fill="#fff" />
+    <circle cx="294.05" cy="216.37" data-x="294.05" data-y="216.37" r="2.0253840830449827" fill="#fff" />
+    <circle cx="342.18" cy="358.43" data-x="342.18" data-y="358.43" r="1.5763383314109958" fill="#fff" />
+    <circle cx="369.83" cy="390.69" data-x="369.83" data-y="390.69" r="0.3262975778546713" fill="#fff" />
+    <circle cx="270.73" cy="135.70" data-x="270.73" data-y="135.70" r="0.6221453287197232" fill="#fff" />
+    <circle cx="84.76" cy="97.36" data-x="84.76" data-y="97.36" r="1.3217777777777777" fill="#fff" />
+    <circle cx="317.67" cy="112.39" data-x="317.67" data-y="112.39" r="1.9830449826989622" fill="#fff" />
+    <circle cx="129.28" cy="193.45" data-x="129.28" data-y="193.45" r="0.9750880430603615" fill="#fff" />
+    <circle cx="160.71" cy="275.81" data-x="160.71" data-y="275.81" r="0.9143406382160706" fill="#fff" />
+    <circle cx="139.89" cy="185.85" data-x="139.89" data-y="185.85" r="1.0858885044213766" fill="#fff" />
+    <circle cx="172.25" cy="127.77" data-x="172.25" data-y="127.77" r="1.1051733948481355" fill="#fff" />
+    <circle cx="190.22" cy="147.82" data-x="190.22" data-y="147.82" r="1.0763337178008459" fill="#fff" />
+    <circle cx="253.73" cy="183.41" data-x="253.73" data-y="183.41" r="1.0573994617454825" fill="#fff" />
+    <circle cx="238.82" cy="375.75" data-x="238.82" data-y="375.75" r="0.8404444444444445" fill="#fff" />
+    <circle cx="223.35" cy="53.54" data-x="223.35" data-y="53.54" r="0.34219300269127256" fill="#fff" />
+    <circle cx="104.18" cy="225.76" data-x="104.18" data-y="225.76" r="1.332735101883891" fill="#fff" />
+    <circle cx="183.10" cy="188.59" data-x="183.10" data-y="188.59" r="0.8325259515570935" fill="#fff" />
+    <circle cx="210.98" cy="98.53" data-x="210.98" data-y="98.53" r="0.9750880430603615" fill="#fff" />
+    <circle cx="184.59" cy="268.96" data-x="184.59" data-y="268.96" r="1.0668373702422145" fill="#fff" />
+    <circle cx="248.17" cy="203.52" data-x="248.17" data-y="203.52" r="1.0019992310649748" fill="#fff" />
+    <circle cx="300.75" cy="356.50" data-x="300.75" data-y="356.50" r="0.33786851211072666" fill="#fff" />
+    <circle cx="206.21" cy="226.89" data-x="206.21" data-y="226.89" r="0.771281814686659" fill="#fff" />
+    <circle cx="200.18" cy="305.04" data-x="200.18" data-y="305.04" r="0.749279507881584" fill="#fff" />
+    <circle cx="257.58" cy="387.24" data-x="257.58" data-y="387.24" r="0.32290811226451366" fill="#fff" />
+    <circle cx="168.76" cy="390.36" data-x="168.76" data-y="390.36" r="0.47777162629757786" fill="#fff" />
+    <circle cx="236.70" cy="256.45" data-x="236.70" data-y="256.45" r="0.8809134948096886" fill="#fff" />
+    <circle cx="115.72" cy="207.22" data-x="115.72" data-y="207.22" r="0.7420622837370243" fill="#fff" />
+    <circle cx="227.43" cy="365.17" data-x="227.43" data-y="365.17" r="0.8891826220684353" fill="#fff" />
+    <circle cx="206.91" cy="270.36" data-x="206.91" data-y="270.36" r="0.9662345251826221" fill="#fff" />
+    <circle cx="298.83" cy="375.92" data-x="298.83" data-y="375.92" r="0.32807996924259897" fill="#fff" />
+    <circle cx="174.11" cy="214.86" data-x="174.11" data-y="214.86" r="0.6283106497500961" fill="#fff" />
+    <circle cx="213.29" cy="234.30" data-x="213.29" data-y="234.30" r="0.8325259515570935" fill="#fff" />
+    <circle cx="121.53" cy="152.40" data-x="121.53" data-y="152.40" r="0.771281814686659" fill="#fff" />
+    <circle cx="182.51" cy="97.70" data-x="182.51" data-y="97.70" r="0.8727028066128415" fill="#fff" />
+    <circle cx="241.12" cy="194.95" data-x="241.12" data-y="194.95" r="1.0955017301038064" fill="#fff" />
+    <circle cx="221.15" cy="357.81" data-x="221.15" data-y="357.81" r="0.9929703960015379" fill="#fff" />
+    <circle cx="309.89" cy="135.31" data-x="309.89" data-y="135.31" r="0.6731041906958861" fill="#fff" />
+    <circle cx="238.49" cy="319.44" data-x="238.49" data-y="319.44" r="0.9058961937716263" fill="#fff" />
+    <circle cx="279.33" cy="182.69" data-x="279.33" data-y="182.69" r="0.5262760476739715" fill="#fff" />
+    <circle cx="159.22" cy="199.56" data-x="159.22" data-y="199.56" r="1.1846505190311418" fill="#fff" />
+    <circle cx="205.06" cy="107.84" data-x="205.06" data-y="107.84" r="1.0019992310649748" fill="#fff" />
+    <circle cx="207.15" cy="343.48" data-x="207.15" data-y="343.48" r="0.9314048442906573" fill="#fff" />
+    <circle cx="257.50" cy="366.37" data-x="257.50" data-y="366.37" r="0.48700499807766245" fill="#fff" />
+    <circle cx="176.77" cy="117.15" data-x="176.77" data-y="117.15" r="1.0386989619377163" fill="#fff" />
+    <circle cx="145.93" cy="349.65" data-x="145.93" data-y="349.65" r="0.9750880430603615" fill="#fff" />
+    <circle cx="271.11" cy="116.87" data-x="271.11" data-y="116.87" r="0.4472956555171088" fill="#fff" />
+    <circle cx="193.67" cy="104.41" data-x="193.67" data-y="104.41" r="1.0202322183775472" fill="#fff" />
+    <circle cx="205.89" cy="196.51" data-x="205.89" data-y="196.51" r="0.8246658977316417" fill="#fff" />
+    <circle cx="248.13" cy="337.74" data-x="248.13" data-y="337.74" r="0.6731041906958861" fill="#fff" />
+    <circle cx="321.99" cy="390.39" data-x="321.99" data-y="390.39" r="0.3262975778546713" fill="#fff" />
+    <circle cx="72.59" cy="396.17" data-x="72.59" data-y="396.17" r="0.32290811226451366" fill="#fff" />
+    <circle cx="170.29" cy="139.16" data-x="170.29" data-y="139.16" r="0.8168642829680894" fill="#fff" />
+    <circle cx="270.50" cy="227.02" data-x="270.50" data-y="227.02" r="0.6535563244905807" fill="#fff" />
+    <circle cx="183.58" cy="127.95" data-x="183.58" data-y="127.95" r="1.236222991157247" fill="#fff" />
+    <circle cx="107.66" cy="217.38" data-x="107.66" data-y="217.38" r="0.6535563244905807" fill="#fff" />
+    <circle cx="245.85" cy="394.04" data-x="245.85" data-y="394.04" r="0.40872587466359095" fill="#fff" />
+    <circle cx="253.24" cy="95.54" data-x="253.24" data-y="95.54" r="0.4557108804306036" fill="#fff" />
+    <circle cx="258.74" cy="273.34" data-x="258.74" data-y="273.34" r="2.2" fill="#fff" />
+    <circle cx="258.36" cy="201.75" data-x="258.36" data-y="201.75" r="0.8564567474048443" fill="#fff" />
+    <circle cx="150.08" cy="368.01" data-x="150.08" data-y="368.01" r="0.9314048442906573" fill="#fff" />
+    <circle cx="275.81" cy="72.42" data-x="275.81" data-y="72.42" r="0.3337777777777778" fill="#fff" />
+    <circle cx="189.99" cy="73.44" data-x="189.99" data-y="73.44" r="0.6283106497500961" fill="#fff" />
+    <circle cx="184.68" cy="213.07" data-x="184.68" data-y="213.07" r="0.8325259515570935" fill="#fff" />
+    <circle cx="275.65" cy="154.15" data-x="275.65" data-y="154.15" r="0.47324259900038446" fill="#fff" />
+    <circle cx="263.02" cy="84.86" data-x="263.02" data-y="84.86" r="0.4472956555171088" fill="#fff" />
+    <circle cx="250.42" cy="166.99" data-x="250.42" data-y="166.99" r="0.756555171088043" fill="#fff" />
+    <circle cx="167.59" cy="351.96" data-x="167.59" data-y="351.96" r="1.0019992310649748" fill="#fff" />
+    <circle cx="76.40" cy="339.11" data-x="76.40" data-y="339.11" r="0.5111111111111111" fill="#fff" />
+    <circle cx="148.10" cy="278.10" data-x="148.10" data-y="278.10" r="0.6221453287197232" fill="#fff" />
+    <circle cx="138.49" cy="254.48" data-x="138.49" data-y="254.48" r="0.8564567474048443" fill="#fff" />
+    <circle cx="263.99" cy="376.83" data-x="263.99" data-y="376.83" r="0.46877201076509034" fill="#fff" />
+    <circle cx="265.06" cy="305.99" data-x="265.06" data-y="305.99" r="2.1262206843521723" fill="#fff" />
+    <circle cx="201.18" cy="187.60" data-x="201.18" data-y="187.60" r="0.7938100730488273" fill="#fff" />
+    <circle cx="18.86" cy="369.04" data-x="18.86" data-y="369.04" r="0.7787327950788159" fill="#fff" />
+    <circle cx="230.86" cy="150.35" data-x="230.86" data-y="150.35" r="0.8484213763936947" fill="#fff" />
+    <circle cx="105.09" cy="343.96" data-x="105.09" data-y="343.96" r="0.34444290657439447" fill="#fff" />
+    <circle cx="161.99" cy="317.87" data-x="161.99" data-y="317.87" r="0.8564567474048443" fill="#fff" />
+    <circle cx="214.35" cy="264.91" data-x="214.35" data-y="264.91" r="0.8975101883890813" fill="#fff" />
+    <circle cx="299.83" cy="202.24" data-x="299.83" data-y="202.24" r="1.0019992310649748" fill="#fff" />
+    <circle cx="268.52" cy="349.38" data-x="268.52" data-y="349.38" r="0.6535563244905807" fill="#fff" />
+    <circle cx="298.41" cy="56.76" data-x="298.41" data-y="56.76" r="0.8404444444444445" fill="#fff" />
+    <circle cx="203.75" cy="136.22" data-x="203.75" data-y="136.22" r="1.0955017301038064" fill="#fff" />
+    <circle cx="303.50" cy="109.13" data-x="303.50" data-y="109.13" r="0.3262975778546713" fill="#fff" />
+    <circle cx="265.74" cy="170.91" data-x="265.74" data-y="170.91" r="0.8727028066128415" fill="#fff" />
+    <circle cx="291.31" cy="175.27" data-x="291.31" data-y="175.27" r="0.6471572472126106" fill="#fff" />
+    <circle cx="85.46" cy="110.30" data-x="85.46" data-y="110.30" r="0.8809134948096886" fill="#fff" />
+    <circle cx="262.20" cy="190.96" data-x="262.20" data-y="190.96" r="0.9400246059207997" fill="#fff" />
+    <circle cx="151.20" cy="231.14" data-x="151.20" data-y="231.14" r="0.9314048442906573" fill="#fff" />
+    <circle cx="99.21" cy="197.27" data-x="99.21" data-y="197.27" r="1.04801999231065" fill="#fff" />
+    <circle cx="256.75" cy="150.64" data-x="256.75" data-y="150.64" r="0.7207612456747405" fill="#fff" />
+    <circle cx="256.60" cy="296.59" data-x="256.60" data-y="296.59" r="2.053902345251826" fill="#fff" />
+    <circle cx="245.50" cy="175.11" data-x="245.50" data-y="175.11" r="1.1051733948481355" fill="#fff" />
+    <circle cx="121.59" cy="217.14" data-x="121.59" data-y="217.14" r="0.8325259515570935" fill="#fff" />
+    <circle cx="245.04" cy="384.46" data-x="245.04" data-y="384.46" r="0.43911418685121106" fill="#fff" />
+    <circle cx="195.85" cy="212.18" data-x="195.85" data-y="212.18" r="0.6600138408304499" fill="#fff" />
+    <circle cx="185.44" cy="291.42" data-x="185.44" data-y="291.42" r="0.5211626297577855" fill="#fff" />
+    <circle cx="122.73" cy="271.61" data-x="122.73" data-y="271.61" r="2.1262206843521723" fill="#fff" />
+    <circle cx="307.93" cy="86.75" data-x="307.93" data-y="86.75" r="1.3217777777777777" fill="#fff" />
+    <circle cx="183.00" cy="176.70" data-x="183.00" data-y="176.70" r="0.8091211072664362" fill="#fff" />
+    <circle cx="54.55" cy="352.30" data-x="54.55" data-y="352.30" r="0.5111111111111111" fill="#fff" />
+    <circle cx="226.93" cy="335.14" data-x="226.93" data-y="335.14" r="1.0019992310649748" fill="#fff" />
+    <circle cx="132.92" cy="214.78" data-x="132.92" data-y="214.78" r="0.9487028066128413" fill="#fff" />
+    <circle cx="225.18" cy="260.11" data-x="225.18" data-y="260.11" r="0.9058961937716263" fill="#fff" />
+    <circle cx="198.88" cy="64.13" data-x="198.88" data-y="64.13" r="0.6160384467512495" fill="#fff" />
+    <circle cx="195.46" cy="154.94" data-x="195.46" data-y="154.94" r="1.0386989619377163" fill="#fff" />
+    <circle cx="215.39" cy="319.35" data-x="215.39" data-y="319.35" r="0.8484213763936947" fill="#fff" />
+    <circle cx="308.59" cy="76.64" data-x="308.59" data-y="76.64" r="0.9574394463667821" fill="#fff" />
+    <circle cx="249.77" cy="278.68" data-x="249.77" data-y="278.68" r="0.5314479046520568" fill="#fff" />
+    <circle cx="177.85" cy="135.23" data-x="177.85" data-y="135.23" r="1.0202322183775472" fill="#fff" />
+    <circle cx="222.25" cy="270.29" data-x="222.25" data-y="270.29" r="0.9058961937716263" fill="#fff" />
+    <circle cx="99.55" cy="129.57" data-x="99.55" data-y="129.57" r="0.3337777777777778" fill="#fff" />
+    <circle cx="163.92" cy="244.96" data-x="163.92" data-y="244.96" r="0.756555171088043" fill="#fff" />
+    <circle cx="192.48" cy="134.18" data-x="192.48" data-y="134.18" r="1.332735101883891" fill="#fff" />
+    <circle cx="292.65" cy="77.91" data-x="292.65" data-y="77.91" r="0.3337777777777778" fill="#fff" />
+    <circle cx="249.45" cy="362.77" data-x="249.45" data-y="362.77" r="0.9143406382160706" fill="#fff" />
+    <circle cx="176.83" cy="302.58" data-x="176.83" data-y="302.58" r="0.7278031526336024" fill="#fff" />
+    <circle cx="231.74" cy="133.61" data-x="231.74" data-y="133.61" r="0.6999861591695502" fill="#fff" />
+    <circle cx="377.72" cy="377.01" data-x="377.72" data-y="377.01" r="0.4051903114186851" fill="#fff" />
+    <circle cx="64.96" cy="345.52" data-x="64.96" data-y="345.52" r="1.0763337178008459" fill="#fff" />
+    <circle cx="188.81" cy="258.36" data-x="188.81" data-y="258.36" r="0.9058961937716263" fill="#fff" />
+    <circle cx="112.74" cy="48.22" data-x="112.74" data-y="48.22" r="0.984" fill="#fff" />
+    <circle cx="236.88" cy="204.88" data-x="236.88" data-y="204.88" r="1.1345390234525183" fill="#fff" />
+    <circle cx="55.03" cy="378.04" data-x="55.03" data-y="378.04" r="0.33579392541330255" fill="#fff" />
+    <circle cx="120.77" cy="138.46" data-x="120.77" data-y="138.46" r="0.6283106497500961" fill="#fff" />
+    <circle cx="395.62" cy="393.81" data-x="395.62" data-y="393.81" r="0.33182006920415225" fill="#fff" />
+    <circle cx="194.74" cy="163.23" data-x="194.74" data-y="163.23" r="1.0019992310649748" fill="#fff" />
+    <circle cx="245.05" cy="327.63" data-x="245.05" data-y="327.63" r="0.7638892733564014" fill="#fff" />
+    <circle cx="192.96" cy="335.93" data-x="192.96" data-y="335.93" r="0.8246658977316417" fill="#fff" />
+    <circle cx="219.97" cy="341.09" data-x="219.97" data-y="341.09" r="0.9574394463667821" fill="#fff" />
+    <circle cx="254.13" cy="130.83" data-x="254.13" data-y="130.83" r="0.6471572472126106" fill="#fff" />
+    <circle cx="182.32" cy="82.79" data-x="182.32" data-y="82.79" r="0.5980684352172241" fill="#fff" />
+    <circle cx="121.40" cy="100.78" data-x="121.40" data-y="100.78" r="0.33786851211072666" fill="#fff" />
+    <circle cx="149.34" cy="250.81" data-x="149.34" data-y="250.81" r="0.9750880430603615" fill="#fff" />
+    <circle cx="285.48" cy="48.07" data-x="285.48" data-y="48.07" r="2.2" fill="#fff" />
+    <circle cx="274.35" cy="40.57" data-x="274.35" data-y="40.57" r="1.5763383314109958" fill="#fff" />
+    <circle cx="315.28" cy="120.38" data-x="315.28" data-y="120.38" r="1.8056532103037293" fill="#fff" />
+    <circle cx="133.99" cy="280.95" data-x="133.99" data-y="280.95" r="0.5527197231833909" fill="#fff" />
+    <circle cx="180.11" cy="313.14" data-x="180.11" data-y="313.14" r="1.0386989619377163" fill="#fff" />
+    <circle cx="240.67" cy="234.66" data-x="240.67" data-y="234.66" r="0.9574394463667821" fill="#fff" />
+    <circle cx="289.55" cy="221.93" data-x="289.55" data-y="221.93" r="1.5641537870049982" fill="#fff" />
+    <circle cx="138.26" cy="150.63" data-x="138.26" data-y="150.63" r="0.7278031526336024" fill="#fff" />
+    <circle cx="270.02" cy="335.25" data-x="270.02" data-y="335.25" r="0.34219300269127256" fill="#fff" />
+    <circle cx="204.09" cy="124.47" data-x="204.09" data-y="124.47" r="1.1444444444444444" fill="#fff" />
+    <circle cx="248.59" cy="156.64" data-x="248.59" data-y="156.64" r="0.5749265667051134" fill="#fff" />
+    <circle cx="233.52" cy="356.28" data-x="233.52" data-y="356.28" r="0.8564567474048443" fill="#fff" />
+    <circle cx="222.51" cy="125.92" data-x="222.51" data-y="125.92" r="1.0763337178008459" fill="#fff" />
+    <circle cx="221.00" cy="134.24" data-x="221.00" data-y="134.24" r="0.9143406382160706" fill="#fff" />
+    <circle cx="158.54" cy="256.80" data-x="158.54" data-y="256.80" r="0.9143406382160706" fill="#fff" />
+    <circle cx="125.48" cy="319.21" data-x="125.48" data-y="319.21" r="0.7278031526336024" fill="#fff" />
+    <circle cx="123.23" cy="285.73" data-x="123.23" data-y="285.73" r="1.6886289888504422" fill="#fff" />
+    <circle cx="259.11" cy="228.21" data-x="259.11" data-y="228.21" r="0.7938100730488273" fill="#fff" />
+    <circle cx="218.54" cy="287.90" data-x="218.54" data-y="287.90" r="0.4557108804306036" fill="#fff" />
+    <circle cx="174.33" cy="275.00" data-x="174.33" data-y="275.00" r="0.9750880430603615" fill="#fff" />
+    <circle cx="167.12" cy="283.28" data-x="167.12" data-y="283.28" r="0.6797370242214533" fill="#fff" />
+    <circle cx="69.39" cy="364.26" data-x="69.39" data-y="364.26" r="0.329920799692426" fill="#fff" />
+    <circle cx="256.25" cy="284.04" data-x="256.25" data-y="284.04" r="1.1948481353325644" fill="#fff" />
+    <circle cx="256.20" cy="31.29" data-x="256.20" data-y="31.29" r="1.941231833910035" fill="#fff" />
+    <circle cx="225.23" cy="218.96" data-x="225.23" data-y="218.96" r="1.0955017301038064" fill="#fff" />
+    <circle cx="233.89" cy="114.72" data-x="233.89" data-y="114.72" r="0.8325259515570935" fill="#fff" />
+    <circle cx="204.58" cy="367.15" data-x="204.58" data-y="367.15" r="1.0955017301038064" fill="#fff" />
+    <circle cx="133.74" cy="295.07" data-x="133.74" data-y="295.07" r="0.6600138408304499" fill="#fff" />
+    <circle cx="233.81" cy="394.84" data-x="233.81" data-y="394.84" r="0.43116647443291045" fill="#fff" />
+    <circle cx="247.15" cy="123.64" data-x="247.15" data-y="123.64" r="0.8091211072664362" fill="#fff" />
+    <circle cx="102.06" cy="57.27" data-x="102.06" data-y="57.27" r="1.332735101883891" fill="#fff" />
+    <circle cx="234.07" cy="309.69" data-x="234.07" data-y="309.69" r="0.8168642829680894" fill="#fff" />
+  </svg>
+</div>
