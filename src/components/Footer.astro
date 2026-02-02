@@ -1,39 +1,8 @@
 ---
-import Portrait from "./Portrait.astro";
 ---
-<footer id="contact" class="max-w-7xl mx-auto px-6 pt-40 border-t border-white/5">
-  <div class="max-w-7xl mx-auto text-center space-y-16">
-    <div class="space-y-6">
-      <h2 class="font-serif text-5xl md:text-7xl italic leading-tight text-white">
-        Let's connect.
-      </h2>
-      <p class="text-zinc-500 max-w-md mx-auto font-light">
-        Currently open to technical leadership roles, start-up partnerships, and networking.
-      </p>
-    </div>
-
-    <div class="flex flex-col items-center">
-      <Portrait />
-    </div>
-
-    <div class="flex flex-col items-center gap-8">
-      <a 
-        href="mailto:contact@sgao.engineer" 
-        class="group flex items-center gap-4 text-2xl md:text-3xl font-serif text-[#d4af37] hover:text-white transition-colors"
-      >
-        sampson.gao7@gmail.com
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-line-join="round" stroke-width={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
-      
-      <div class="flex gap-8 text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-600">
-        <a href="https://www.linkedin.com/in/sampsongao/" class="hover:text-white transition-colors">LinkedIn</a>
-        <a href="https://github.com/sampsongao" class="hover:text-white transition-colors">GitHub</a>
-      </div>
-    </div>
-
-    <div class="pt-20 flex flex-col md:flex-row justify-between items-center border-t border-white/5 text-[10px] text-zinc-700 uppercase tracking-widest gap-4">
+<footer id="footer">
+  <div class="max-w-7xl mx-auto px-6 py-6 text-center space-y-16">
+    <div class="flex flex-col md:flex-row justify-between items-center text-[10px] text-zinc-700 uppercase tracking-widest gap-4">
       <p>©{new Date().getFullYear()} Sampson Gao. All rights reserved.</p>
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>

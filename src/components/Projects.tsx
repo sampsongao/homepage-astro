@@ -3,10 +3,11 @@ import { ProjectItem } from './types';
 
 export const PROJECTS: ProjectItem[] = [
   {
-    title: 'Particles Portrait',
-    description: 'Portrait display with particle interactive animation.',
-    image: '/portrait-particles.svg',
-    tags: ['AWS ECS', 'gRPC', 'AWS DynamoDB'],
+    title: 'Dynamic Stipple Art',
+    url: "/projects/stipple-art-particle-animation",
+    description: 'Stipple art with interactive particle animation.',
+    image: '/portrait-stipple-mark.svg',
+    tags: ['Python', 'Javascript', 'SVG'],
   }
 ];
 
@@ -20,6 +21,8 @@ const Projects: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROJECTS.map((project) => (
+            <a href={project.url}>
+
             <div className="group bg-zinc-900/30 border border-white/5 overflow-hidden hover:border-[#d4af37]/30 transition-all duration-500">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -53,6 +56,7 @@ const Projects: React.FC = () => {
                 </div>
               </div>
             </div>
+            </a>
           ))}
         </div>
       </div>

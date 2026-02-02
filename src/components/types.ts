@@ -9,6 +9,7 @@ export interface ExperienceItem {
 
 export interface ProjectItem {
   title: string;
+  url: string;
   description: string;
   image: string;
   tags: string[];
