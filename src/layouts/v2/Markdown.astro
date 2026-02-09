@@ -1,0 +1,22 @@
+---
+import Footer from "../../components/v2/Footer.astro";
+import Header from "../../components/v2/Header";
+import Layout from "../Layout.astro";
+
+const { title } = Astro.props;
+const pathname = Astro.url.pathname;
+const origin = Astro.url.origin;
+const searchParams = Astro.url.searchParams;
+---
+
+<Layout title={title}>
+  <Header pathname={pathname} />
+
+  <div class="container py-16">
+    <div class="prose prose-zinc dark:prose-invert">
+      <slot />
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
