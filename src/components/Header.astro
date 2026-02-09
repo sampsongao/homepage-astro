@@ -1,0 +1,42 @@
+---
+import React from 'react';
+
+export const NAV_LINKS = [
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Contact', href: '#contact' },
+];
+---
+
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-black/50 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 border border-[#d4af37] flex items-center justify-center font-serif text-[#d4af37] text-xl font-bold group-hover:bg-[#d4af37] group-hover:text-black transition-all duration-300">
+        S
+      </div>
+      <span class="font-medium tracking-widest text-sm uppercase hidden sm:block">Sampson Gao</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class="text-zinc-400 text-xs uppercase tracking-widest hover:text-zinc-100 transition-colors"
+        >
+          {link.name}
+        </a>
+      ))}
+      <button class="px-5 py-2.5 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-100 transition-colors">
+        Resume
+      </button>
+    </nav>
+
+    {/* Mobile Menu Icon */}
+    <button class="md:hidden text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M4 8h16M4 16h16" />
+      </svg>
+    </button>
+  </div>
+</header>

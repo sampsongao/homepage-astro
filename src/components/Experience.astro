@@ -1,0 +1,65 @@
+---
+import { ExperienceItem } from './types';
+
+export const EXPERIENCES: ExperienceItem[] = [
+  {
+    icon: "/company-amazon.svg",
+    role: 'Software Development Engineer II',
+    company: 'Amazon Ads Media Planning',
+    period: '2022 — 2026',
+    description: 'Architected Amazon Media Planning Reach Forecasting API and deliver features to help agencies and advertisers to plan Ads media spending on Amazon Ads. Focused on simplicity, maintainability, and reliability.',
+  },
+  {
+    icon: "/company-IBM.svg",
+    role: 'Software Developer',
+    company: 'IBM Watson Machine Learning',
+    period: '2018 — 2021',
+    description: 'Fullstack developer delivering features for IBM Watson Machine Learning platform.',
+  },
+  {
+    icon: "/company-IBM.svg",
+    role: 'Compiler Optimization Developer',
+    company: 'IBM NodeJS/V8 Team',
+    period: '2016 — 2017',
+    description: 'Improving performance of V8 Javascript engine port for IBM hardware support. Participated in prototyping and implementation of N-API (now Node-API) to provide a stable Application Binary Interface (ABI) for native addons.',    
+  }
+];
+---
+
+<section id="experience" class="bg-[#000000]">
+  <div class="max-w-7xl mx-auto py-32 px-6">
+    <div class="flex flex-col justify-between mb-20 gap-8">
+      <h2 class="font-serif text-4xl italic text-white">Professional Experiences</h2>
+    </div>
+
+    <div class="space-y-16">
+      {EXPERIENCES.map((exp) => (
+        <div class="group relative grid md:grid-cols-[1fr_2fr] gap-8 py-8">
+          {/* Left Column: Icon & Company */}
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 flex items-center justify-center border-0 text-[#d4af37]">
+                <img src={exp.icon} alt={exp.company} />
+              </div>
+              <div>
+                <h4 class="text-[#d4af37] text-[10px] font-bold uppercase tracking-widest">{exp.company}</h4>
+                <p class="text-zinc-500 text-xs font-mono">{exp.period}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Role & Description */}
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold text-white group-hover:text-[#d4af37] transition-colors">{exp.role}</h3>
+            <p class="text-zinc-400 leading-relaxed font-light text-lg">
+              {exp.description}
+            </p>
+          </div>
+          
+          {/* Decorative side border that glows on hover */}
+          <div class="absolute top-0 left-[-20px] h-full w-[2px] bg-white/0 group-hover:bg-[#d4af37] transition-all duration-500"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

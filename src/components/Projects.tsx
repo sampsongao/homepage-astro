@@ -3,7 +3,6 @@ import { ProjectItem } from './types';
 
 export const PROJECTS: ProjectItem[] = [
   {
-    id: '1',
     title: 'Particles Portrait',
     description: 'Portrait display with particle interactive animation.',
     image: '/portrait-particles.svg',
@@ -13,15 +12,15 @@ export const PROJECTS: ProjectItem[] = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-32 px-6 bg-[#080808]">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="bg-[#080808]">
+      <div className="max-w-7xl mx-auto py-32  px-6">
         <div className="flex flex-col justify-between mb-20 gap-8">
           <h2 className="font-serif text-4xl italic text-white">Projects</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROJECTS.map((project) => (
-            <div key={project.id} className="group bg-zinc-900/30 border border-white/5 overflow-hidden hover:border-[#d4af37]/30 transition-all duration-500">
+            <div className="group bg-zinc-900/30 border border-white/5 overflow-hidden hover:border-[#d4af37]/30 transition-all duration-500">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={project.image}
