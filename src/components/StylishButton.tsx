@@ -65,13 +65,6 @@ export default function StylishButton(props: StylishButtonProps) {
       hover:underline
       disabled:hover:no-underline
     `,
-
-
-    // ////
-    // [ButtonType.TERTIARY]: `
-    //   text-gray-600 dark:text-gray-400 [&_svg]:fill-red-500
-    //   hover:text-gray-800 hover:[&_svg]:fill-blue-800
-    // `,
   };
 
   const className = [
