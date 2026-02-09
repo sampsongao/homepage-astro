@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+.container {
+  width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html {
+  background-color: white;
+}
+
+html.dark {
+  background-color: black;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
