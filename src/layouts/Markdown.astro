@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Wrapper from "../components/Wrapper.astro";
 import Layout from "./Layout.astro";
 
 const { title } = Astro.props;
@@ -12,11 +13,13 @@ const searchParams = Astro.url.searchParams;
 <Layout title={title}>
   <Header pathname={pathname} />
 
-  <div class="container py-16">
-    <div class="prose prose-zinc dark:prose-invert">
-      <slot />
+  <Wrapper>
+    <div class="py-16">
+      <div class="prose prose-zinc dark:prose-invert">
+        <slot />
+      </div>
     </div>
-  </div>
+  </Wrapper>
 
   <Footer />
 </Layout>

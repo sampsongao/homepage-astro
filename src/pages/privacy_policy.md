@@ -7,12 +7,11 @@ date: "17 Feb 2025"
 
 # Privacy Policy
 
-Last updated: 2/10/2025
+Last updated: 2/2/2026
 
 ## 1. Introduction
 
-<!-- TODO: fix domain name -->
-Welcome to [Sampson Gao's Personal Website](sampson-gao.xxx) ("we", "our", or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website sampson-gao.xxx or use our services.
+Welcome to [Sampson Gao's Personal Website](sampsongao.com) ("we", "our", or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website sampson-gao.xxx or use our services.
 
 ## 2. Information We Collect
 
@@ -36,5 +35,4 @@ We may update this Privacy Policy from time to time. We will notify you of any c
 
 ## 7. Contact Us
 
-<!-- TODO: fix domain name -->
-If you have any questions about this Privacy Policy, please contact us at info@sampson-gao.xxx.
+If you have any questions about this Privacy Policy, please contact us at sampson.gao7@gmail.com.
