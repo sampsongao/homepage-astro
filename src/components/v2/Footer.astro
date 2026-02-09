@@ -1,5 +1,7 @@
 ---
-
+import { Image } from "astro:assets";
+import portrait from "../../../public/portrait-stipple2.svg";
+import Portrait from "./Portrait.astro";
 ---
 <footer id="contact" class="pt-40 pb-20 px-6 border-t border-white/5">
   <div class="max-w-7xl mx-auto text-center space-y-16">
@@ -10,6 +12,11 @@
       <p class="text-zinc-500 max-w-xl mx-auto font-light">
         Currently open to technical leadership roles, start up partnerships, and <br /> networking.
       </p>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <!-- <Image width={400} height={400} src={portrait} alt="" /> -->
+      <Portrait client:visible></Portrait>
     </div>
 
     <div class="flex flex-col items-center gap-8">

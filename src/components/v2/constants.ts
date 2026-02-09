@@ -30,30 +30,6 @@ export const EXPERIENCE: ExperienceItem[] = [
   },
 ];
 
-export const PROJECTS: ProjectItem[] = [
-  {
-    id: '1',
-    title: 'Project Chronos',
-    description: 'A distributed event-sourcing engine built for global financial markets, utilizing high-performance data structures.',
-    image: 'https://picsum.photos/seed/chronos/800/600',
-    tags: ['Rust', 'gRPC', 'PostgreSQL'],
-  },
-  {
-    id: '2',
-    title: 'Titan Mesh',
-    description: 'A zero-trust service mesh capable of handling 10Tbps of encrypted traffic with automated failover and self-healing.',
-    image: 'https://picsum.photos/seed/mesh/800/600',
-    tags: ['Go', 'Kubernetes', 'eBPF'],
-  },
-  {
-    id: '3',
-    title: 'Lumina Dashboard',
-    description: 'Real-time observability platform for monitoring complex microservice architectures with AI-driven anomaly detection.',
-    image: 'https://picsum.photos/seed/lumina/800/600',
-    tags: ['React', 'D3.js', 'TypeScript'],
-  },
-];
-
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: '1',
