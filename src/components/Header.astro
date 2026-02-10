@@ -35,10 +35,64 @@ export const NAV_LINKS = [
     </nav>
 
     {/* Mobile Menu Icon */}
-    <button class="md:hidden text-white">
+    <button id="mobile-menu-button" class="md:hidden text-white" aria-expanded="false" aria-controls="mobile-menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M4 8h16M4 16h16" />
       </svg>
     </button>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="md:hidden absolute inset-x-0 top-20 bg-black/60 border-b border-white/5 backdrop-blur-md hidden">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+        {NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="text-zinc-300 text-sm uppercase tracking-widest hover:text-zinc-100 transition-colors"
+          >
+            {link.name}
+          </a>
+        ))}
+
+        <a
+          href="/resume.pdf"
+          download
+          class="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-100 transition-colors"
+        >
+          Resume
+        </a>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        if (!btn || !menu) return;
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!menu.contains(e.target as Node) && !btn.contains(e.target as Node)) {
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.focus();
+          }
+        });
+      })();
+    </script>
   </div>
 </header>
