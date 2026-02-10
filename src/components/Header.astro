@@ -1,30 +1,39 @@
 ---
 export const NAV_LINKS = [
-  { name: 'Experience', href: '/#experience' },
-  { name: 'Projects', href: '/#projects' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/#contact' },
+  { name: "Experience", href: "/#experience" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/#contact" },
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-black/50 border-b border-white/5">
+<header
+  class="sticky top-0 z-50 w-full backdrop-blur-md bg-black/50"
+>
   <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
     <a href="/" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 border border-[#d4af37] flex items-center justify-center font-serif text-[#d4af37] text-xl font-bold group-hover:bg-[#d4af37] group-hover:text-black transition-all duration-300">
+      <div
+        class="w-10 h-10 border border-[#d4af37] flex items-center justify-center font-serif text-[#d4af37] text-xl font-bold group-hover:bg-[#d4af37] group-hover:text-black transition-all duration-300"
+      >
         S
       </div>
-      <span class="font-medium tracking-widest text-sm uppercase hidden sm:block">Sampson Gao</span>
+      <span
+        class="font-medium tracking-widest text-sm uppercase hidden sm:block"
+        >Sampson Gao</span
+      >
     </a>
 
     <nav class="hidden md:flex items-center gap-8">
-      {NAV_LINKS.map((link) => (
-        <a
-          href={link.href}
-          class="text-zinc-400 text-xs uppercase tracking-widest hover:text-zinc-100 transition-colors"
-        >
-          {link.name}
-        </a>
-      ))}
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="text-zinc-400 text-xs uppercase tracking-widest hover:text-zinc-100 transition-colors"
+          >
+            {link.name}
+          </a>
+        ))
+      }
       <a
         href="/resume.pdf"
         download
@@ -35,28 +44,62 @@ export const NAV_LINKS = [
     </nav>
 
     {/* Mobile Menu Icon */}
-    <button id="mobile-menu-button" class="md:hidden text-white" aria-expanded="false" aria-controls="mobile-menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M4 8h16M4 16h16" />
+    <button
+      id="mobile-menu-button"
+      class="md:hidden text-white"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M4 8h16M4 16h16"></path>
       </svg>
     </button>
 
+    <script is:inline>
+      const navLinkOnClick = () => {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
+        menu.setAttribute("data-hidden", "true");
+        document
+          .getElementById("mobile-menu-button")
+          .setAttribute("aria-expanded", "false");
+      };
+    </script>
+
     <!-- Mobile dropdown menu -->
-    <div id="mobile-menu" class="md:hidden absolute inset-x-0 top-20 bg-black/60 border-b border-white/5 backdrop-blur-md hidden">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
-        {NAV_LINKS.map((link) => (
-          <a
-            href={link.href}
-            class="text-zinc-300 text-sm uppercase tracking-widest hover:text-zinc-100 transition-colors"
-          >
-            {link.name}
-          </a>
-        ))}
+    <div
+      id="mobile-menu"
+      class="md:hidden absolute z-50 inset-x-0 top-20 bg-black/50 border-b border-white/25 backdrop-blur-md transition-all duration-300 origin-top opacity-0 scale-y-100 pointer-events-none"
+      data-hidden="true"
+    >
+      <div class="max-w-7xl mx-auto px-6 pb-4 flex flex-col">
+        {
+          NAV_LINKS.map((link) => (
+            <a
+              href={link.href}
+              class="text-zinc-300 text-sm uppercase tracking-widest hover:text-zinc-100 transition-colors py-2"
+              onclick="navLinkOnClick()"
+            >
+              {link.name}
+            </a>
+          ))
+        }
 
         <a
           href="/resume.pdf"
           download
           class="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-100 transition-colors"
+          onclick="navLinkOnClick()"
         >
           Resume
         </a>
@@ -65,30 +108,57 @@ export const NAV_LINKS = [
 
     <script>
       (function () {
-        const btn = document.getElementById('mobile-menu-button');
-        const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById("mobile-menu-button");
+        const menu = document.getElementById("mobile-menu");
         if (!btn || !menu) return;
 
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener("click", (e) => {
           e.stopPropagation();
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
-          menu.classList.toggle('hidden');
+          const expanded = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!expanded));
+          if (expanded) {
+            menu.classList.add(
+              "opacity-0",
+              "scale-y-100",
+              "pointer-events-none",
+            );
+            menu.setAttribute("data-hidden", "true");
+          } else {
+            menu.classList.remove(
+              "opacity-0",
+              "scale-y-100",
+              "pointer-events-none",
+            );
+            menu.removeAttribute("data-hidden");
+          }
         });
 
         // Close when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!menu.contains(e.target as Node) && !btn.contains(e.target as Node)) {
-            menu.classList.add('hidden');
-            btn.setAttribute('aria-expanded', 'false');
+        document.addEventListener("click", (e) => {
+          if (
+            !menu.contains(e.target as Node) &&
+            !btn.contains(e.target as Node)
+          ) {
+            menu.classList.add(
+              "opacity-0",
+              "scale-y-100",
+              "pointer-events-none",
+            );
+            menu.setAttribute("data-hidden", "true");
+            btn.setAttribute("aria-expanded", "false");
           }
         });
 
         // Close on escape
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            menu.classList.add('hidden');
-            btn.setAttribute('aria-expanded', 'false');
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            menu.classList.add(
+              "opacity-0",
+              "scale-y-100",
+              "pointer-events-none",
+            );
+            menu.setAttribute("data-hidden", "true");
+            btn.setAttribute("aria-expanded", "false");
             btn.focus();
           }
         });
