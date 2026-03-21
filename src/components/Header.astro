@@ -7,10 +7,10 @@ export const NAV_LINKS = [
 ];
 ---
 
-<header
-  class="sticky top-0 z-50 w-full backdrop-blur-md bg-black/50"
->
-  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<header class="sticky top-0 z-50 w-full bg-black/50">
+  <div
+    class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between backdrop-blur-md"
+  >
     <a href="/" class="flex items-center gap-3 group">
       <div
         class="w-10 h-10 border border-[#d4af37] flex items-center justify-center font-serif text-[#d4af37] text-xl font-bold group-hover:bg-[#d4af37] group-hover:text-black transition-all duration-300"
@@ -64,105 +64,93 @@ export const NAV_LINKS = [
           d="M4 8h16M4 16h16"></path>
       </svg>
     </button>
-
-    <script is:inline>
-      const navLinkOnClick = () => {
-        const menu = document.getElementById("mobile-menu");
-        menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
-        menu.setAttribute("data-hidden", "true");
-        document
-          .getElementById("mobile-menu-button")
-          .setAttribute("aria-expanded", "false");
-      };
-    </script>
-
-    <!-- Mobile dropdown menu -->
-    <div
-      id="mobile-menu"
-      class="md:hidden absolute z-50 inset-x-0 top-20 bg-black/50 border-b border-white/25 backdrop-blur-md transition-all duration-300 origin-top opacity-0 scale-y-100 pointer-events-none"
-      data-hidden="true"
-    >
-      <div class="max-w-7xl mx-auto px-6 pb-4 flex flex-col">
-        {
-          NAV_LINKS.map((link) => (
-            <a
-              href={link.href}
-              class="text-zinc-300 text-sm uppercase tracking-widest hover:text-zinc-100 transition-colors py-2"
-              onclick="navLinkOnClick()"
-            >
-              {link.name}
-            </a>
-          ))
-        }
-
-        <a
-          href="/resume.pdf"
-          download
-          class="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-100 transition-colors"
-          onclick="navLinkOnClick()"
-        >
-          Resume
-        </a>
-      </div>
-    </div>
-
-    <script>
-      (function () {
-        const btn = document.getElementById("mobile-menu-button");
-        const menu = document.getElementById("mobile-menu");
-        if (!btn || !menu) return;
-
-        btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const expanded = btn.getAttribute("aria-expanded") === "true";
-          btn.setAttribute("aria-expanded", String(!expanded));
-          if (expanded) {
-            menu.classList.add(
-              "opacity-0",
-              "scale-y-100",
-              "pointer-events-none",
-            );
-            menu.setAttribute("data-hidden", "true");
-          } else {
-            menu.classList.remove(
-              "opacity-0",
-              "scale-y-100",
-              "pointer-events-none",
-            );
-            menu.removeAttribute("data-hidden");
-          }
-        });
-
-        // Close when clicking outside
-        document.addEventListener("click", (e) => {
-          if (
-            !menu.contains(e.target as Node) &&
-            !btn.contains(e.target as Node)
-          ) {
-            menu.classList.add(
-              "opacity-0",
-              "scale-y-100",
-              "pointer-events-none",
-            );
-            menu.setAttribute("data-hidden", "true");
-            btn.setAttribute("aria-expanded", "false");
-          }
-        });
-
-        // Close on escape
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") {
-            menu.classList.add(
-              "opacity-0",
-              "scale-y-100",
-              "pointer-events-none",
-            );
-            menu.setAttribute("data-hidden", "true");
-            btn.setAttribute("aria-expanded", "false");
-            btn.focus();
-          }
-        });
-      })();
-    </script>
   </div>
+
+  <script is:inline>
+    const navLinkOnClick = () => {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
+      menu.setAttribute("data-hidden", "true");
+      document
+        .getElementById("mobile-menu-button")
+        .setAttribute("aria-expanded", "false");
+    };
+  </script>
+
+  <!-- Mobile dropdown menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden absolute z-50 inset-x-0 top-20 bg-black/50 border-b border-white/25 backdrop-blur-md transition-all duration-300 origin-top opacity-0 scale-y-100 pointer-events-none"
+    data-hidden="true"
+  >
+    <div class="max-w-7xl mx-auto px-6 pb-4 flex flex-col">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="text-zinc-300 text-sm uppercase tracking-widest hover:text-zinc-100 transition-colors py-2"
+            onclick="navLinkOnClick()"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+
+      <a
+        href="/resume.pdf"
+        download
+        class="px-4 py-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-zinc-100 transition-colors"
+        onclick="navLinkOnClick()"
+      >
+        Resume
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+      if (!btn || !menu) return;
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+        if (expanded) {
+          menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
+          menu.setAttribute("data-hidden", "true");
+        } else {
+          menu.classList.remove(
+            "opacity-0",
+            "scale-y-100",
+            "pointer-events-none",
+          );
+          menu.removeAttribute("data-hidden");
+        }
+      });
+
+      // Close when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !menu.contains(e.target as Node) &&
+          !btn.contains(e.target as Node)
+        ) {
+          menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
+          menu.setAttribute("data-hidden", "true");
+          btn.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Close on escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
+          menu.setAttribute("data-hidden", "true");
+          btn.setAttribute("aria-expanded", "false");
+          btn.focus();
+        }
+      });
+    })();
+  </script>
 </header>
