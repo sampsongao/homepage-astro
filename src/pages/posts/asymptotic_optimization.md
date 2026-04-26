@@ -81,7 +81,6 @@ The full benchmark script also measures total variation distance and runtime acr
 
 ![Runtime versus N](../../assets/posts/asymptotic_optimization_runtime_vs_N.svg)
 
-
 ## Reading the Plots
 
 The error plot is the main mathematical result. It shows that the approximation becomes steadily more accurate as $N$ grows, which is exactly the asymptotic behavior we expect. I used total variation distance as the main summary because it compares the full distributions rather than a single value of $k$.

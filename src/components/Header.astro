@@ -18,8 +18,7 @@ export const NAV_LINKS = [
         >
           S
         </div>
-        <span
-          class="font-medium tracking-widest text-sm uppercase hidden sm:block"
+        <span class="font-medium tracking-widest text-sm uppercase hidden sm:block"
           >Sampson Gao</span
         >
       </a>
@@ -58,11 +57,8 @@ export const NAV_LINKS = [
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width={2}
-            d="M4 8h16M4 16h16"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width={2} d="M4 8h16M4 16h16"
+          ></path>
         </svg>
       </button>
     </div>
@@ -72,9 +68,7 @@ export const NAV_LINKS = [
         const menu = document.getElementById("mobile-menu");
         menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
         menu.setAttribute("data-hidden", "true");
-        document
-          .getElementById("mobile-menu-button")
-          .setAttribute("aria-expanded", "false");
+        document.getElementById("mobile-menu-button").setAttribute("aria-expanded", "false");
       };
     </script>
   </Wrapper>
@@ -123,21 +117,14 @@ export const NAV_LINKS = [
           menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
           menu.setAttribute("data-hidden", "true");
         } else {
-          menu.classList.remove(
-            "opacity-0",
-            "scale-y-100",
-            "pointer-events-none",
-          );
+          menu.classList.remove("opacity-0", "scale-y-100", "pointer-events-none");
           menu.removeAttribute("data-hidden");
         }
       });
 
       // Close when clicking outside
       document.addEventListener("click", (e) => {
-        if (
-          !menu.contains(e.target as Node) &&
-          !btn.contains(e.target as Node)
-        ) {
+        if (!menu.contains(e.target as Node) && !btn.contains(e.target as Node)) {
           menu.classList.add("opacity-0", "scale-y-100", "pointer-events-none");
           menu.setAttribute("data-hidden", "true");
           btn.setAttribute("aria-expanded", "false");

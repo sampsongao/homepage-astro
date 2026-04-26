@@ -1,13 +1,13 @@
-
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 
 export default function useDarkMode() {
   const [darkModeOn, setDarkModeOn] = useState(true);
 
   useEffect(() => {
-    setDarkModeOn(localStorage?.getItem("darkModeOn") !== undefined
-      ? localStorage?.getItem("darkModeOn") === 'true'
-      : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    setDarkModeOn(
+      localStorage?.getItem("darkModeOn") !== undefined
+        ? localStorage?.getItem("darkModeOn") === "true"
+        : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
     );
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -16,10 +16,13 @@ export default function useDarkMode() {
     };
 
     // Register listener
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateDarkMode);
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateDarkMode);
 
     // Clean up listener
-    return () => window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', updateDarkMode);
+    return () =>
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener("change", updateDarkMode);
   }, []);
 
   useEffect(() => {

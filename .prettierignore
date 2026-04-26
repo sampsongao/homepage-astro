@@ -1,0 +1,11 @@
+node_modules
+dist
+.astro
+coverage
+
+package-lock.json
+
+public/resume.pdf
+public/*.svg
+src/assets/**/*.svg
+src/assets/**/*.csv
