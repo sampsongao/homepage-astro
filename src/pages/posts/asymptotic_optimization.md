@@ -19,7 +19,7 @@ This only works when the mathematics supports it, but when it does, it can be a 
 Suppose we want to plot the probability mass function of a hypergeometric distribution. Its exact formula is
 
 $$
-P(X = k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}
+P(X = k) = \dfrac{\dbinom{K}{k}\dbinom{N-K}{n-k}}{\dbinom{N}{n}}
 $$
 
 where:
