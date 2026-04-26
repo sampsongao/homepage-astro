@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<rect width="100%" height="100%" fill="#0b0f14" />
+<text x="480.0" y="30" fill="#f5f7fa" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Approximation Error vs N</text>
+<line x1="88" y1="492" x2="936" y2="492" stroke="#7f8ea3" stroke-width="1"/>
+<line x1="88" y1="56" x2="88" y2="492" stroke="#7f8ea3" stroke-width="1"/>
+<line x1="88.00" y1="56" x2="88.00" y2="492" stroke="#1b2530" stroke-width="1"/>
+<text x="88.00" y="518" fill="#c3cfdb" font-size="12" text-anchor="middle" font-family="Inter, Arial, sans-serif">1e3</text>
+<line x1="370.67" y1="56" x2="370.67" y2="492" stroke="#1b2530" stroke-width="1"/>
+<text x="370.67" y="518" fill="#c3cfdb" font-size="12" text-anchor="middle" font-family="Inter, Arial, sans-serif">1e4</text>
+<line x1="653.33" y1="56" x2="653.33" y2="492" stroke="#1b2530" stroke-width="1"/>
+<text x="653.33" y="518" fill="#c3cfdb" font-size="12" text-anchor="middle" font-family="Inter, Arial, sans-serif">1e5</text>
+<line x1="936.00" y1="56" x2="936.00" y2="492" stroke="#1b2530" stroke-width="1"/>
+<text x="936.00" y="518" fill="#c3cfdb" font-size="12" text-anchor="middle" font-family="Inter, Arial, sans-serif">1e6</text>
+<line x1="88" y1="474.87" x2="936" y2="474.87" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="478.87" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">1.0e-05</text>
+<line x1="88" y1="362.62" x2="936" y2="362.62" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="366.62" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">1.0e-04</text>
+<line x1="88" y1="250.36" x2="936" y2="250.36" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="254.36" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">1.0e-03</text>
+<line x1="88" y1="138.10" x2="936" y2="138.10" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="142.10" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">1.0e-02</text>
+<line x1="88" y1="25.84" x2="936" y2="25.84" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="29.84" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">1.0e-01</text>
+<path d="M 88.00 56.00 L 173.09 92.50 L 285.58 138.73 L 370.67 173.03 L 455.76 207.08 L 568.24 251.90 L 653.33 285.74 L 738.42 319.56 L 850.91 364.25 L 936.00 398.05" fill="none" stroke="#5eead4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="88.00" cy="56.00" r="4" fill="#5eead4"/>
+<circle cx="173.09" cy="92.50" r="4" fill="#5eead4"/>
+<circle cx="285.58" cy="138.73" r="4" fill="#5eead4"/>
+<circle cx="370.67" cy="173.03" r="4" fill="#5eead4"/>
+<circle cx="455.76" cy="207.08" r="4" fill="#5eead4"/>
+<circle cx="568.24" cy="251.90" r="4" fill="#5eead4"/>
+<circle cx="653.33" cy="285.74" r="4" fill="#5eead4"/>
+<circle cx="738.42" cy="319.56" r="4" fill="#5eead4"/>
+<circle cx="850.91" cy="364.25" r="4" fill="#5eead4"/>
+<circle cx="936.00" cy="398.05" r="4" fill="#5eead4"/>
+<path d="M 88.00 147.20 L 173.09 185.21 L 285.58 232.22 L 370.67 266.76 L 455.76 300.92 L 568.24 345.81 L 653.33 379.68 L 738.42 413.51 L 850.91 458.20 L 936.00 492.00" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="88.00" cy="147.20" r="4" fill="#f59e0b"/>
+<circle cx="173.09" cy="185.21" r="4" fill="#f59e0b"/>
+<circle cx="285.58" cy="232.22" r="4" fill="#f59e0b"/>
+<circle cx="370.67" cy="266.76" r="4" fill="#f59e0b"/>
+<circle cx="455.76" cy="300.92" r="4" fill="#f59e0b"/>
+<circle cx="568.24" cy="345.81" r="4" fill="#f59e0b"/>
+<circle cx="653.33" cy="379.68" r="4" fill="#f59e0b"/>
+<circle cx="738.42" cy="413.51" r="4" fill="#f59e0b"/>
+<circle cx="850.91" cy="458.20" r="4" fill="#f59e0b"/>
+<circle cx="936.00" cy="492.00" r="4" fill="#f59e0b"/>
+<line x1="756" y1="68" x2="778" y2="68" stroke="#5eead4" stroke-width="3"/>
+<text x="786" y="72" fill="#f5f7fa" font-size="13" font-family="Inter, Arial, sans-serif">Total variation distance</text>
+<line x1="756" y1="92" x2="778" y2="92" stroke="#f59e0b" stroke-width="3"/>
+<text x="786" y="96" fill="#f5f7fa" font-size="13" font-family="Inter, Arial, sans-serif">Max absolute error</text>
+<text x="512.0" y="542" fill="#f5f7fa" font-size="14" text-anchor="middle" font-family="Inter, Arial, sans-serif">Population size N (log scale)</text>
+<text x="22" y="274.0" fill="#f5f7fa" font-size="14" text-anchor="middle" transform="rotate(-90 22 274.0)" font-family="Inter, Arial, sans-serif">Error (log scale)</text>
+</svg>

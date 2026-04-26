@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<rect width="100%" height="100%" fill="#0b0f14" />
+<text x="480.0" y="30" fill="#f5f7fa" font-size="22" text-anchor="middle" font-family="Inter, Arial, sans-serif">Runtime vs N: Naive and lgamma Implementations</text>
+<line x1="88" y1="492" x2="936" y2="492" stroke="#7f8ea3" stroke-width="1"/>
+<line x1="88" y1="56" x2="88" y2="492" stroke="#7f8ea3" stroke-width="1"/>
+<line x1="-39.64" y1="56" x2="-39.64" y2="492" stroke="#1b2530" stroke-width="1"/>
+<text x="-39.64" y="518" fill="#c3cfdb" font-size="12" text-anchor="middle" font-family="Inter, Arial, sans-serif">1e2</text>
+<line x1="384.36" y1="56" x2="384.36" y2="492" stroke="#1b2530" stroke-width="1"/>
+<text x="384.36" y="518" fill="#c3cfdb" font-size="12" text-anchor="middle" font-family="Inter, Arial, sans-serif">1e3</text>
+<line x1="808.36" y1="56" x2="808.36" y2="492" stroke="#1b2530" stroke-width="1"/>
+<text x="808.36" y="518" fill="#c3cfdb" font-size="12" text-anchor="middle" font-family="Inter, Arial, sans-serif">1e4</text>
+<line x1="88" y1="492.00" x2="936" y2="492.00" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="496.00" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">0.000</text>
+<line x1="88" y1="404.80" x2="936" y2="404.80" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="408.80" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">2.309</text>
+<line x1="88" y1="317.60" x2="936" y2="317.60" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="321.60" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">4.618</text>
+<line x1="88" y1="230.40" x2="936" y2="230.40" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="234.40" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">6.926</text>
+<line x1="88" y1="143.20" x2="936" y2="143.20" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="147.20" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">9.235</text>
+<line x1="88" y1="56.00" x2="936" y2="56.00" stroke="#1b2530" stroke-width="1"/>
+<text x="78" y="60.00" fill="#c3cfdb" font-size="12" text-anchor="end" font-family="Inter, Arial, sans-serif">11.544</text>
+<path d="M 88.00 491.99 L 256.73 391.33 L 384.36 273.34 L 512.00 213.52 L 680.73 175.62 L 808.36 134.52 L 936.00 112.87" fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="88.00" cy="491.99" r="4" fill="#60a5fa"/>
+<circle cx="256.73" cy="391.33" r="4" fill="#60a5fa"/>
+<circle cx="384.36" cy="273.34" r="4" fill="#60a5fa"/>
+<circle cx="512.00" cy="213.52" r="4" fill="#60a5fa"/>
+<circle cx="680.73" cy="175.62" r="4" fill="#60a5fa"/>
+<circle cx="808.36" cy="134.52" r="4" fill="#60a5fa"/>
+<circle cx="936.00" cy="112.87" r="4" fill="#60a5fa"/>
+<path d="M 88.00 491.93 L 256.73 483.52 L 384.36 475.40 L 512.00 475.76 L 680.73 476.00 L 808.36 476.31 L 936.00 476.53" fill="none" stroke="#f472b6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="88.00" cy="491.93" r="4" fill="#f472b6"/>
+<circle cx="256.73" cy="483.52" r="4" fill="#f472b6"/>
+<circle cx="384.36" cy="475.40" r="4" fill="#f472b6"/>
+<circle cx="512.00" cy="475.76" r="4" fill="#f472b6"/>
+<circle cx="680.73" cy="476.00" r="4" fill="#f472b6"/>
+<circle cx="808.36" cy="476.31" r="4" fill="#f472b6"/>
+<circle cx="936.00" cy="476.53" r="4" fill="#f472b6"/>
+<path d="M 88.00 491.97 L 256.73 489.03 L 384.36 485.77 L 512.00 485.53 L 680.73 485.94 L 808.36 486.01 L 936.00 486.27" fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="88.00" cy="491.97" r="4" fill="#94a3b8"/>
+<circle cx="256.73" cy="489.03" r="4" fill="#94a3b8"/>
+<circle cx="384.36" cy="485.77" r="4" fill="#94a3b8"/>
+<circle cx="512.00" cy="485.53" r="4" fill="#94a3b8"/>
+<circle cx="680.73" cy="485.94" r="4" fill="#94a3b8"/>
+<circle cx="808.36" cy="486.01" r="4" fill="#94a3b8"/>
+<circle cx="936.00" cy="486.27" r="4" fill="#94a3b8"/>
+<path d="M 88.00 491.98 L 256.73 490.29 L 384.36 488.65 L 512.00 488.86 L 680.73 488.88 L 808.36 488.94 L 936.00 488.96" fill="none" stroke="#facc15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="88.00" cy="491.98" r="4" fill="#facc15"/>
+<circle cx="256.73" cy="490.29" r="4" fill="#facc15"/>
+<circle cx="384.36" cy="488.65" r="4" fill="#facc15"/>
+<circle cx="512.00" cy="488.86" r="4" fill="#facc15"/>
+<circle cx="680.73" cy="488.88" r="4" fill="#facc15"/>
+<circle cx="808.36" cy="488.94" r="4" fill="#facc15"/>
+<circle cx="936.00" cy="488.96" r="4" fill="#facc15"/>
+<line x1="756" y1="68" x2="778" y2="68" stroke="#60a5fa" stroke-width="3"/>
+<text x="786" y="72" fill="#f5f7fa" font-size="13" font-family="Inter, Arial, sans-serif">Naive exact hypergeometric</text>
+<line x1="756" y1="92" x2="778" y2="92" stroke="#f472b6" stroke-width="3"/>
+<text x="786" y="96" fill="#f5f7fa" font-size="13" font-family="Inter, Arial, sans-serif">Naive binomial approximation</text>
+<line x1="756" y1="116" x2="778" y2="116" stroke="#94a3b8" stroke-width="3"/>
+<text x="786" y="120" fill="#f5f7fa" font-size="13" font-family="Inter, Arial, sans-serif">lgamma exact hypergeometric</text>
+<line x1="756" y1="140" x2="778" y2="140" stroke="#facc15" stroke-width="3"/>
+<text x="786" y="144" fill="#f5f7fa" font-size="13" font-family="Inter, Arial, sans-serif">lgamma binomial approximation</text>
+<text x="512.0" y="542" fill="#f5f7fa" font-size="14" text-anchor="middle" font-family="Inter, Arial, sans-serif">Population size N (log scale)</text>
+<text x="22" y="274.0" fill="#f5f7fa" font-size="14" text-anchor="middle" transform="rotate(-90 22 274.0)" font-family="Inter, Arial, sans-serif">Average time per full PMF evaluation (ms)</text>
+</svg>

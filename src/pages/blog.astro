@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Wrapper from "../components/Wrapper.astro";
+import Footer from "../components/Footer.astro";
+import asymptoticPreview from "../assets/posts/asymptotic_equivalent_curves.svg";
+
+type PostFrontmatter = {
+  title: string;
+  date?: string | Date;
+  description?: string;
+};
+
+type PostModule = {
+  frontmatter: PostFrontmatter;
+  url: string;
+};
+
+const postModules = import.meta.glob<PostModule>("./posts/*.md", {
+  eager: true,
+});
+
+const formatDate = (date: string | Date | undefined) => {
+  if (!date) return "";
+
+  const parsedDate = new Date(date);
+  if (Number.isNaN(parsedDate.getTime())) return String(date);
+
+  return new Intl.DateTimeFormat("en", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(parsedDate);
+};
+
+const posts = Object.values(postModules)
+  .map((post) => ({
+    title: post.frontmatter.title,
+    description: post.frontmatter.description,
+    date: post.frontmatter.date,
+    formattedDate: formatDate(post.frontmatter.date),
+    url: post.url,
+    image: asymptoticPreview.src,
+  }))
+  .sort((a, b) => {
+    const aTime = a.date ? new Date(a.date).getTime() : 0;
+    const bTime = b.date ? new Date(b.date).getTime() : 0;
+
+    return bTime - aTime;
+  });
+---
+
+<Layout title="Blog | Sampson Gao">
+  <Header />
+
+  <main class="min-h-[calc(100vh-8rem)] bg-[#080808]">
+    <Wrapper>
+      <section class="py-16">
+        <div class="mb-20 flex flex-col justify-between gap-8">
+          <h1 class="font-serif text-4xl italic text-white">Posts</h1>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {
+            posts.map((post) => (
+              <a
+                href={post.url}
+                class="group block overflow-hidden border border-white/5 bg-zinc-900/30 transition-all duration-500 hover:border-[#d4af37]/30"
+              >
+                <article class="grid min-h-64 grid-cols-1 sm:grid-cols-[1fr_14rem]">
+                  <div class="flex flex-col justify-between p-8">
+                    <div>
+                      {/* <div class="mb-6 h-px w-12 bg-[#d4af37]/60" /> */}
+
+                      <h2 class="text-xl font-bold text-white transition-colors group-hover:text-[#d4af37]">
+                        {post.title}
+                      </h2>
+
+                      {post.description && (
+                        <p class="mt-4 line-clamp-3 text-sm font-light leading-relaxed text-zinc-400">
+                          {post.description}
+                        </p>
+                      )}
+                    </div>
+
+                    <div class="mt-8 flex items-center justify-between gap-6">
+                      {post.formattedDate && (
+                        <p class="text-[10px] uppercase tracking-widest text-zinc-500">
+                          {post.formattedDate}
+                        </p>
+                      )}
+
+                      <div class="shrink-0 text-[#d4af37] opacity-0 transition-opacity group-hover:opacity-100">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width={2}
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative min-h-48 overflow-hidden bg-black sm:min-h-full">
+                    <img
+                      src={post.image}
+                      alt=""
+                      class="h-full w-full object-cover opacity-80 grayscale transition-all duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+                    />
+                    <div class="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/10" />
+                  </div>
+                </article>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+    </Wrapper>
+  </main>
+
+  <Footer />
+</Layout>
