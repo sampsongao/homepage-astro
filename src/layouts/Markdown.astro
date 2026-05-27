@@ -24,3 +24,18 @@ const searchParams = Astro.url.searchParams;
 
   <Footer />
 </Layout>
+
+<style is:global>
+  .prose {
+    /* Prevent raw URLs or other long markdown tokens from widening the page. */
+    overflow-wrap: break-word;
+  }
+
+  .prose .katex-display {
+    /* Keep wide display equations readable without widening the document. */
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.25rem;
+  }
+</style>
