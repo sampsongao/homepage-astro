@@ -39,4 +39,4 @@ We reserve the right to modify these Terms at any time. We will notify you of an
 
 ## 8. Contact Me
 
-If you have any questions about these Terms, please contact me at sampson.gao7@gmail.com
+If you have any questions about these Terms, please contact me at sampsongao.dev@gmail.com
