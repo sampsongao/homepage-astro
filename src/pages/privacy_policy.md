@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/Markdown.astro
-title: "Privacy Agreement"
+title: "Privacy Policy"
 author: "Sampson Gao"
 date: "17 Feb 2025"
 ---
