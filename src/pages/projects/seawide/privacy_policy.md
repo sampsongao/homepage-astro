@@ -2,7 +2,7 @@
 layout: ../../../layouts/Markdown.astro
 title: "Privacy Policy"
 author: "Sampson Gao"
-date: "17 Feb 2025"
+date: "25 July 2026"
 ---
 
 # Privacy Policy
